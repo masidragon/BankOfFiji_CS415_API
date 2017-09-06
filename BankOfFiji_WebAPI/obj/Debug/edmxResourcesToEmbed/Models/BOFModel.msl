@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BankOfFijiModelStoreContainer" CdmEntityContainer="BankOfFijiEntities">
+    <EntitySetMapping Name="AccountApplications">
+      <EntityTypeMapping TypeName="BankOfFijiModel.AccountApplications">
+        <MappingFragment StoreEntitySet="AccountApplications">
+          <ScalarProperty Name="accountApplicationNo" ColumnName="accountApplicationNo" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="accountTypeId" ColumnName="accountTypeId" />
+          <ScalarProperty Name="openingBalance" ColumnName="openingBalance" />
+          <ScalarProperty Name="verifiedAndOpenedBy" ColumnName="verifiedAndOpenedBy" />
+          <ScalarProperty Name="authorizedBy" ColumnName="authorizedBy" />
+          <ScalarProperty Name="approvedDate" ColumnName="approvedDate" />
+          <ScalarProperty Name="applicationStatusId" ColumnName="applicationStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountStatus">
+      <EntityTypeMapping TypeName="BankOfFijiModel.AccountStatus">
+        <MappingFragment StoreEntitySet="AccountStatus">
+          <ScalarProperty Name="accountStatusId" ColumnName="accountStatusId" />
+          <ScalarProperty Name="accountStatusDesc" ColumnName="accountStatusDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountType">
+      <EntityTypeMapping TypeName="BankOfFijiModel.AccountType">
+        <MappingFragment StoreEntitySet="AccountType">
+          <ScalarProperty Name="accountTypeId" ColumnName="accountTypeId" />
+          <ScalarProperty Name="accountTypeDesc" ColumnName="accountTypeDesc" />
+          <ScalarProperty Name="accountRate" ColumnName="accountRate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicationStatus">
+      <EntityTypeMapping TypeName="BankOfFijiModel.ApplicationStatus">
+        <MappingFragment StoreEntitySet="ApplicationStatus">
+          <ScalarProperty Name="applicationStatusId" ColumnName="applicationStatusId" />
+          <ScalarProperty Name="applicationStatusDesc" ColumnName="applicationStatusDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssetType">
+      <EntityTypeMapping TypeName="BankOfFijiModel.AssetType">
+        <MappingFragment StoreEntitySet="AssetType">
+          <ScalarProperty Name="assetTypeId" ColumnName="assetTypeId" />
+          <ScalarProperty Name="assetTypeDesc" ColumnName="assetTypeDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AutoPayments">
+      <EntityTypeMapping TypeName="BankOfFijiModel.AutoPayments">
+        <MappingFragment StoreEntitySet="AutoPayments">
+          <ScalarProperty Name="paymentNo" ColumnName="paymentNo" />
+          <ScalarProperty Name="transactionTypeId" ColumnName="transactionTypeId" />
+          <ScalarProperty Name="sourceAccount" ColumnName="sourceAccount" />
+          <ScalarProperty Name="destinationAccount" ColumnName="destinationAccount" />
+          <ScalarProperty Name="paymentAmount" ColumnName="paymentAmount" />
+          <ScalarProperty Name="scheduleId" ColumnName="scheduleId" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="nextDate" ColumnName="nextDate" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="terminationDate" ColumnName="terminationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankAccount">
+      <EntityTypeMapping TypeName="BankOfFijiModel.BankAccount">
+        <MappingFragment StoreEntitySet="BankAccount">
+          <ScalarProperty Name="accountNo" ColumnName="accountNo" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="accountTypeId" ColumnName="accountTypeId" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="debitBal" ColumnName="debitBal" />
+          <ScalarProperty Name="creditBal" ColumnName="creditBal" />
+          <ScalarProperty Name="totalInterest" ColumnName="totalInterest" />
+          <ScalarProperty Name="taxId" ColumnName="taxId" />
+          <ScalarProperty Name="accountStatusId" ColumnName="accountStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerProfile">
+      <EntityTypeMapping TypeName="BankOfFijiModel.CustomerProfile">
+        <MappingFragment StoreEntitySet="CustomerProfile">
+          <ScalarProperty Name="rowId" ColumnName="rowId" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="customerTypeId" ColumnName="customerTypeId" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="postal" ColumnName="postal" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="FNPFNumber" ColumnName="FNPFNumber" />
+          <ScalarProperty Name="martialStatus" ColumnName="martialStatus" />
+          <ScalarProperty Name="occupation" ColumnName="occupation" />
+          <ScalarProperty Name="TIN" ColumnName="TIN" />
+          <ScalarProperty Name="passportNumber" ColumnName="passportNumber" />
+          <ScalarProperty Name="residentialType" ColumnName="residentialType" />
+          <ScalarProperty Name="businessName" ColumnName="businessName" />
+          <ScalarProperty Name="sourceOfFunds" ColumnName="sourceOfFunds" />
+          <ScalarProperty Name="employerName" ColumnName="employerName" />
+          <ScalarProperty Name="salaryPerAnnum" ColumnName="salaryPerAnnum" />
+          <ScalarProperty Name="DOBCertificate" ColumnName="DOBCertificate" />
+          <ScalarProperty Name="FNPFCertificate" ColumnName="FNPFCertificate" />
+          <ScalarProperty Name="TINLetter" ColumnName="TINLetter" />
+          <ScalarProperty Name="businessLicense" ColumnName="businessLicense" />
+          <ScalarProperty Name="passportCpy" ColumnName="passportCpy" />
+          <ScalarProperty Name="photoID" ColumnName="photoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerType">
+      <EntityTypeMapping TypeName="BankOfFijiModel.CustomerType">
+        <MappingFragment StoreEntitySet="CustomerType">
+          <ScalarProperty Name="customerTypeId" ColumnName="customerTypeId" />
+          <ScalarProperty Name="customerTypeDesc" ColumnName="customerTypeDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InterestRates">
+      <EntityTypeMapping TypeName="BankOfFijiModel.InterestRates">
+        <MappingFragment StoreEntitySet="InterestRates">
+          <ScalarProperty Name="interestRateId" ColumnName="interestRateId" />
+          <ScalarProperty Name="interestRateDetails" ColumnName="interestRateDetails" />
+          <ScalarProperty Name="rateValue" ColumnName="rateValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoanApplications">
+      <EntityTypeMapping TypeName="BankOfFijiModel.LoanApplications">
+        <MappingFragment StoreEntitySet="LoanApplications">
+          <ScalarProperty Name="loanApplicationNo" ColumnName="loanApplicationNo" />
+          <ScalarProperty Name="accountNo" ColumnName="accountNo" />
+          <ScalarProperty Name="assetTypeId" ColumnName="assetTypeId" />
+          <ScalarProperty Name="monthlyRent_MortageAmt" ColumnName="monthlyRent/MortageAmt" />
+          <ScalarProperty Name="desiredLoanAmt" ColumnName="desiredLoanAmt" />
+          <ScalarProperty Name="loanTypeId" ColumnName="loanTypeId" />
+          <ScalarProperty Name="approver" ColumnName="approver" />
+          <ScalarProperty Name="approvedDate" ColumnName="approvedDate" />
+          <ScalarProperty Name="applicationStatusId" ColumnName="applicationStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoanRecords">
+      <EntityTypeMapping TypeName="BankOfFijiModel.LoanRecords">
+        <MappingFragment StoreEntitySet="LoanRecords">
+          <ScalarProperty Name="loanApplicationNo" ColumnName="loanApplicationNo" />
+          <ScalarProperty Name="repaymtStartDate" ColumnName="repaymtStartDate" />
+          <ScalarProperty Name="repaymtEndDate" ColumnName="repaymtEndDate" />
+          <ScalarProperty Name="LoanStatusId" ColumnName="LoanStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoanStatus">
+      <EntityTypeMapping TypeName="BankOfFijiModel.LoanStatus">
+        <MappingFragment StoreEntitySet="LoanStatus">
+          <ScalarProperty Name="LoanStatusId" ColumnName="LoanStatusId" />
+          <ScalarProperty Name="LoanStatusDesc" ColumnName="LoanStatusDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoanType">
+      <EntityTypeMapping TypeName="BankOfFijiModel.LoanType">
+        <MappingFragment StoreEntitySet="LoanType">
+          <ScalarProperty Name="LoanTypeId" ColumnName="LoanTypeId" />
+          <ScalarProperty Name="LoanTypeDesc" ColumnName="LoanTypeDesc" />
+          <ScalarProperty Name="LoanInterestRate" ColumnName="LoanInterestRate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="BankOfFijiModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="roleDesc" ColumnName="roleDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scheduler">
+      <EntityTypeMapping TypeName="BankOfFijiModel.Scheduler">
+        <MappingFragment StoreEntitySet="Scheduler">
+          <ScalarProperty Name="scheduleId" ColumnName="scheduleId" />
+          <ScalarProperty Name="schedule" ColumnName="schedule" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BankOfFijiModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxRates">
+      <EntityTypeMapping TypeName="BankOfFijiModel.TaxRates">
+        <MappingFragment StoreEntitySet="TaxRates">
+          <ScalarProperty Name="taxId" ColumnName="taxId" />
+          <ScalarProperty Name="taxDesc" ColumnName="taxDesc" />
+          <ScalarProperty Name="taxValue" ColumnName="taxValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="BankOfFijiModel.Transactions">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="transcId" ColumnName="transcId" />
+          <ScalarProperty Name="transactionTypeId" ColumnName="transactionTypeId" />
+          <ScalarProperty Name="transcDate" ColumnName="transcDate" />
+          <ScalarProperty Name="sourceAccount" ColumnName="sourceAccount" />
+          <ScalarProperty Name="destinationAccount" ColumnName="destinationAccount" />
+          <ScalarProperty Name="transcAmount" ColumnName="transcAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionType">
+      <EntityTypeMapping TypeName="BankOfFijiModel.TransactionType">
+        <MappingFragment StoreEntitySet="TransactionType">
+          <ScalarProperty Name="TransactionTypeId" ColumnName="TransactionTypeId" />
+          <ScalarProperty Name="TransactionTypeDesc" ColumnName="TransactionTypeDesc" />
+          <ScalarProperty Name="TransactionFee" ColumnName="TransactionFee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="BankOfFijiModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="passwordHash" ColumnName="passwordHash" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BankOfFijiModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BankOfFijiModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BankOfFijiModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BankOfFijiModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BankOfFijiModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BankOfFijiModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BankOfFijiModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BankOfFijiModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BankOfFijiModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

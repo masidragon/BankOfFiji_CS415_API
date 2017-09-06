@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="171a0e357bb743cc8d4f5a5afec62c52" Name="Diagram1">
+        <EntityTypeShape EntityType="BankOfFijiModel.AccountApplications" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.AccountStatus" Width="1.5" PointX="3.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.AccountType" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.ApplicationStatus" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.AssetType" Width="1.5" PointX="9" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.AutoPayments" Width="1.5" PointX="8.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.BankAccount" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.CustomerProfile" Width="1.5" PointX="4" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.CustomerType" Width="1.5" PointX="1.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.InterestRates" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.LoanApplications" Width="1.5" PointX="11.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.LoanRecords" Width="1.5" PointX="13.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.LoanStatus" Width="1.5" PointX="11.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.LoanType" Width="1.5" PointX="9" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.Roles" Width="1.5" PointX="1.5" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.Scheduler" Width="1.5" PointX="6" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.TaxRates" Width="1.5" PointX="3.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.Transactions" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.TransactionType" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankOfFijiModel.Users" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <AssociationConnector Association="BankOfFijiModel.FK_AccountApplications_AccountType" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_AccountApplications_ApplicationStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_AccountApplications_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_Account_AccountStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_Account_AccountType" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_LoanApplications_ApplicationStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_LoanApplications_AssetType" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_AutoPayments_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_AutoPayments_Account1" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_AutoPayments_Scheduler" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_AutoPayments_TransactionType" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_Account_TaxRates" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_Account_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_LoanApplications_BankAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_Transactions_DestinationAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_Transactions_SourceAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_Customer_CustomerType" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_Customer_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_LoanApplications_LoanType" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_LoanRecords_LoanApplications" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_LoanRecords_LoanStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_Users_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="BankOfFijiModel.FK_Transactions_TransactionType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

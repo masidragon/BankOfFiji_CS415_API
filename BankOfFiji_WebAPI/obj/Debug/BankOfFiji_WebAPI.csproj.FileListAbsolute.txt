@@ -1,0 +1,317 @@
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\csc.exe
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\System.Collections.Immutable.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\vbc.exe
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\VBCSCompiler.exe
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\VBCSCompiler.exe.config
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\BankOfFiji_WebAPI.dll.config
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\BankOfFiji_WebAPI.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\BankOfFiji_WebAPI.pdb
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Antlr3.Runtime.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.SqlServer.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Google.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Web.Infrastructure.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Newtonsoft.Json.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Owin.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Net.Http.Formatting.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Helpers.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.Owin.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.WebHost.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Mvc.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Optimization.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Razor.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Deployment.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Razor.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\WebGrease.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Newtonsoft.Json.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Net.Http.Formatting.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Helpers.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.WebHost.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Mvc.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Optimization.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Razor.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Deployment.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Razor.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Antlr3.Runtime.pdb
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.SqlServer.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Google.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.Owin.xml
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.csprojResolveAssemblyReference.cache
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.dll
+c:\users\intervention\documents\visual studio 2015\Projects\BankOfFiji_WebAPI\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.pdb
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\csc.exe
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\System.Collections.Immutable.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\System.Reflection.Metadata.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\vbc.exe
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\VBCSCompiler.exe
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\VBCSCompiler.exe.config
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\BankOfFiji_WebAPI.dll.config
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\BankOfFiji_WebAPI.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\BankOfFiji_WebAPI.pdb
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Antlr3.Runtime.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.SqlServer.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Core.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Cookies.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Facebook.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Google.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Twitter.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Web.Infrastructure.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Newtonsoft.Json.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Owin.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Net.Http.Formatting.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Helpers.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.Owin.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.WebHost.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Mvc.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Optimization.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Razor.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Deployment.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Razor.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\WebGrease.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Newtonsoft.Json.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Net.Http.Formatting.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Helpers.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.WebHost.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Mvc.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Optimization.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Razor.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Deployment.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Razor.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Antlr3.Runtime.pdb
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.SqlServer.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Core.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Facebook.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Cookies.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Google.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Twitter.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.Owin.xml
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.csprojResolveAssemblyReference.cache
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.pdb
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Cors.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.Cors.dll
+F:\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.Cors.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\csc.exe
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\vbc.exe
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\VBCSCompiler.exe
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\BankOfFiji_WebAPI.dll.config
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\BankOfFiji_WebAPI.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\BankOfFiji_WebAPI.pdb
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Antlr3.Runtime.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.SqlServer.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Newtonsoft.Json.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Owin.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Net.Http.Formatting.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Cors.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Helpers.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.Cors.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.Owin.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.WebHost.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Mvc.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Optimization.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Razor.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Deployment.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Razor.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\WebGrease.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.Cors.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Newtonsoft.Json.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Net.Http.Formatting.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Helpers.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.WebHost.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Mvc.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Optimization.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Razor.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Deployment.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Razor.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Antlr3.Runtime.pdb
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.SqlServer.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.Owin.xml
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.csprojResolveAssemblyReference.cache
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.dll
+C:\Users\dnche\Desktop\API\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.pdb
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\csc.exe
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\vbc.exe
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\VBCSCompiler.exe
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\BankOfFiji_WebAPI.dll.config
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\BankOfFiji_WebAPI.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\BankOfFiji_WebAPI.pdb
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Antlr3.Runtime.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.SqlServer.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Newtonsoft.Json.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Owin.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Net.Http.Formatting.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Cors.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Helpers.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.Cors.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.Owin.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.WebHost.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Mvc.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Optimization.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Razor.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Deployment.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Razor.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\WebGrease.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.Cors.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Newtonsoft.Json.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Net.Http.Formatting.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Helpers.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.WebHost.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Mvc.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Optimization.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Razor.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Deployment.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.WebPages.Razor.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Antlr3.Runtime.pdb
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\EntityFramework.SqlServer.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\bin\System.Web.Http.Owin.xml
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.csprojResolveAssemblyReference.cache
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.dll
+C:\Users\DC039279\Desktop\CS415\BankOfFiji_WebAPI\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.pdb

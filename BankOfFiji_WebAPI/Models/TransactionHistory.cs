@@ -7,6 +7,7 @@ namespace BankOfFiji_WebAPI.Models
 {
     public class TransactionHistory
     {
+        public decimal Balance { get; set; }
         public string Date { get; set; }
         public int DestinationAccount { get; set; }
         public int SourceAccount { get; set; }

@@ -38,6 +38,18 @@ namespace BankOfFiji_WebAPI.Controllers
         }
 
         [HttpPost]
+        [Route("getcompanyaccs")]
+        // POST api/values
+        public List<Account> GetCompanyAccs(Account info)
+        {
+            List<Account> List = new List<Account>();
+
+            List = TransferRepo.GetCompanyAccounts(info);
+
+            return List;
+        }
+
+        [HttpPost]
         [Route("transfertoacc")]
         // POST api/values
         public string EnableTransfer([FromBody]Transfer info)

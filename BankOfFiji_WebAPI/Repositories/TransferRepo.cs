@@ -70,6 +70,46 @@ namespace BankOfFiji_WebAPI.Repositories
             }
         }
 
+
+        public static List<Account> GetCompanyAccounts(Account info)
+        {
+            BankOfFijiEntities db = new BankOfFijiEntities();
+
+            try
+            {
+                var FindAllCompanies =  (from all in db.Users
+                                        where all.roleId == 1001
+                                        select all).ToList();
+
+                List <BankAccount> CheckAccs = new List<BankAccount>();
+                List<Account> newlist = new List<Account>();
+
+                foreach (var item in FindAllCompanies)
+                {
+                    CheckAccs = (from all in db.BankAccount
+                                     where all.userId == item.userId
+                                     select all).ToList();
+                    
+                    foreach (var result in CheckAccs)
+                    {
+                        Account newentry = new Account();
+
+                        newentry.ID = result.accountNo;
+                        newentry.Type = result.AccountType.accountTypeDesc;
+
+                        newlist.Add(newentry);
+                    }
+                }
+
+                return newlist;
+            }
+            catch
+            {
+                List<Account> ViewContent = null;
+                return ViewContent;
+            }
+        }
+
         public static string EnableTransfer(Transfer info)
         {
             BankOfFijiEntities db = new BankOfFijiEntities();
@@ -84,13 +124,14 @@ namespace BankOfFiji_WebAPI.Repositories
                 {
                     return "Oh no! You have insufficient funds to transfer!";
                 }
+                BankAccount AdjustValues = new BankAccount();
+
+
 
                 Transactions NewEntry = new Transactions();
 
                 var LastID = from all in db.Transactions
                              select all.transcId;
-
-
                 NewEntry.transcId = Guid.NewGuid();
                 NewEntry.transactionTypeId = info.Transac_Type_ID;
                 NewEntry.transcAmount = info.Trans_Amount;

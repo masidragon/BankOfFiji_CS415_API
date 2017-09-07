@@ -17,8 +17,10 @@ namespace BankOfFiji_WebAPI.Repositories
             {
                 DateTime Start = DateTime.Parse(info.StartDate, System.Globalization.CultureInfo.GetCultureInfo("en-us"));
                 DateTime End = DateTime.Parse(info.EndDate, System.Globalization.CultureInfo.GetCultureInfo("en-us"));
-                //DateTime Start = Convert.ToDateTime(info.StartDate);
-                //DateTime End = Convert.ToDateTime(info.EndDate);
+
+                decimal GetBalance = (from all in db.BankAccount
+                                      where all.accountNo == info.AccountNumber
+                                      select all.creditBal).FirstOrDefault();
 
                 var CheckTrans = from all in db.Transactions
                                 where all.transcDate >= Start && all.transcDate <= End && all.BankAccount.accountNo == info.AccountNumber
@@ -34,7 +36,7 @@ namespace BankOfFiji_WebAPI.Repositories
                     newentry.DestinationAccount = item.destinationAccount;
                     newentry.SourceAccount = item.sourceAccount;
                     newentry.TypeOfTrans = item.TransactionType.TransactionTypeDesc;
-
+                    newentry.Balance = GetBalance;
                     newlist.Add(newentry);
                 }
 

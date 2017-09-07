@@ -40,6 +40,24 @@ namespace BankOfFiji_WebAPI.Repositories
             }
         }
 
+        public static int CheckAccountsCount(int info)
+        {
+            BankOfFijiEntities db = new BankOfFijiEntities();
+
+            try
+            {
+                var CheckAccs = from all in db.BankAccount
+                                where all.userId == info
+                                select all;
+
+                return CheckAccs.Count();
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
         public static List<Account> GetOtherAccounts(Account info)
         {
             BankOfFijiEntities db = new BankOfFijiEntities();

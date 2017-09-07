@@ -10,9 +10,14 @@ namespace BankOfFiji_WebAPI.Controllers
 {
     public class DashboardController : ApiController
     {
+        // GET api/userdetails
+        /// <summary>
+        /// Verify the user exists in the system and return their details.
+        /// </summary>
+        /// <param name="CustID"></param>
+        /// <returns>The user details for the dashboard view.</returns>
         [HttpGet]
         [Route("userdetails")]
-        // POST api/values
         public UserDetails searchuser(int CustID)
         {
             if (CustID == 0)

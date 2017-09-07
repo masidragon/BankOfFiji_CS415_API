@@ -29,5 +29,7 @@ namespace BankOfFiji_WebAPI.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<BankOfFiji_WebAPI.Models.Account> Accounts { get; set; }
     }
 }

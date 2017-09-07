@@ -10,9 +10,14 @@ namespace BankOfFiji_WebAPI.Controllers
 {
     public class TransactionController : ApiController
     {
+        // POST api/values
+        /// <summary>
+        /// Get all the transactions in the date range specified by the user.
+        /// </summary>
+        /// <param HistoryHandler="HistoryParam"></param>
+        /// <returns>A list of Transactions objects with transaction details.</returns>
         [HttpPost]
         [Route("getstatement")]
-        // POST api/values
         public List<TransactionHistory> CheckTransactions(HistoryHandler HistoryParam)
         {
             List<TransactionHistory> List = new List<TransactionHistory>();

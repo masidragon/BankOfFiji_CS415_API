@@ -10,9 +10,14 @@ namespace BankOfFiji_WebAPI.Controllers
 {
     public class LoginController : ApiController
     {
+        // POST api/values
+        /// <summary>
+        /// Validate the user's existance in the system
+        /// </summary>
+        /// <param Login="info"></param>
+        /// <returns>A string mentioning the result of validation.</returns>
         [HttpPost]
         [Route("authenticate")]
-        // POST api/values
         public string validate(Login info)
         {
             if (info == null)
@@ -23,9 +28,14 @@ namespace BankOfFiji_WebAPI.Controllers
             return LoginRepo.Check_Credentials(info);
         }
 
+        // POST api/values
+        /// <summary>
+        /// Retrieves all the ID associated with the logged on user.
+        /// </summary>
+        /// <param Login="info"></param>
+        /// <returns>A list of IDs for the user</returns>
         [HttpPost]
         [Route("idrequest")]
-        // POST api/values
         public UserDetails retrieve(Login info)
         {
             if (info == null)

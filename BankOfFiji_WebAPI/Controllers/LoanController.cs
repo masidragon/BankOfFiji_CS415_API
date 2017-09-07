@@ -10,9 +10,14 @@ namespace BankOfFiji_WebAPI.Controllers
 {
     public class LoanController : ApiController
     {
+        // POST api/values
+        /// <summary>
+        /// Submission of loan application into the database
+        /// </summary>
+        /// <param Loan="info"></param>
+        /// <returns>A string to inform system of the status of loan submission.</returns>
         [HttpGet]
         [Route("loanapplication")]
-        // POST api/values
         public string searchuser(Loan info)
         {
             try

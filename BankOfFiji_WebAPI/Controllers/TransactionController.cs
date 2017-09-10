@@ -18,14 +18,21 @@ namespace BankOfFiji_WebAPI.Controllers
         /// <returns>A list of Transactions objects with transaction details.</returns>
         [HttpPost]
         [Route("getstatement")]
-        public List<TransactionHistory> CheckTransactions(HistoryHandler HistoryParam)
+        public IHttpActionResult CheckTransactions(HistoryHandler HistoryParam)
         {
             List<TransactionHistory> List = new List<TransactionHistory>();
 
-            List = TransactionRepo.CheckStatement(HistoryParam);
+            try
+            {
+                List = TransactionRepo.CheckStatement(HistoryParam);
 
-            return List;
-
+                return Ok(List);
+            }
+            catch
+            {
+                return NotFound();
+            }
+            
         }
     }
 }

@@ -18,16 +18,24 @@ namespace BankOfFiji_WebAPI.Controllers
         /// <returns>The user details for the dashboard view.</returns>
         [HttpGet]
         [Route("userdetails")]
-        public UserDetails searchuser(int CustID)
+        public IHttpActionResult searchuser(int CustID)
         {
             if (CustID == 0)
             {
-                UserDetails NullHandler = new UserDetails();
-                NullHandler.FirstName = "NULL";
-                return NullHandler;
+                return NotFound();
             }
 
-            return DashboardRepo.Check_UserDetails(CustID);
+            try
+            {
+                var Result = DashboardRepo.Check_UserDetails(CustID);
+
+                return Ok(Result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+
         }
     }
 }

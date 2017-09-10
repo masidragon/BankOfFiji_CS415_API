@@ -18,15 +18,16 @@ namespace BankOfFiji_WebAPI.Controllers
         /// <returns>A string to inform system of the status of loan submission.</returns>
         [HttpGet]
         [Route("loanapplication")]
-        public string searchuser(Loan info)
+        public IHttpActionResult searchuser(Loan info)
         {
             try
             {
-                return LoanRepo.LoanApplication(info);
+                var Result =  LoanRepo.LoanApplication(info);
+                return Ok(Result);
             }
             catch
             {
-                return "Hm. Seems like something went wrong.";
+                return Ok("Hm. Seems like something went wrong.");
             }
         }
     }

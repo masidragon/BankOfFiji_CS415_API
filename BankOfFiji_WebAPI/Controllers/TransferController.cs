@@ -19,9 +19,19 @@ namespace BankOfFiji_WebAPI.Controllers
         [HttpPost]
         [Route("accscount")]
         // POST api/values
-        public int CheckAccountsCount([FromBody]int custid)
+        public IHttpActionResult CheckAccountsCount([FromBody]int custid)
         {
-            return TransferRepo.CheckAccountsCount(custid);
+            try
+            {
+                var Result = TransferRepo.CheckAccountsCount(custid);
+
+                return Ok(Result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+            
         }
 
 
@@ -35,14 +45,19 @@ namespace BankOfFiji_WebAPI.Controllers
         [HttpPost]
         [Route("checkaccs")]
         // POST api/values
-        public List<Account> CheckAccounts([FromBody]int custid)
+        public IHttpActionResult CheckAccounts([FromBody]int custid)
         {
             List<Account> List = new List<Account>();
 
-            List = TransferRepo.CheckBankAccounts(custid);
-
-            return List;
-
+            try
+            {
+                List = TransferRepo.CheckBankAccounts(custid);
+                return Ok(List);
+            }
+            catch
+            {
+                return NotFound();
+            }
         }
 
         // POST api/values
@@ -53,14 +68,19 @@ namespace BankOfFiji_WebAPI.Controllers
         /// <returns>A list of accounts owned by the logged on user.</returns>
         [HttpPost]
         [Route("getotheracc")]
-        public List<Account> GetOtherAccounts(Account info)
+        public IHttpActionResult GetOtherAccounts(Account info)
         {
             List<Account> List = new List<Account>();
 
-            List = TransferRepo.GetOtherAccounts(info);
-
-            return List;
-
+            try
+            {
+                List = TransferRepo.GetOtherAccounts(info);
+                return Ok(List);
+            }
+            catch
+            {
+                return NotFound();
+            }
         }
 
         // POST api/values
@@ -71,13 +91,20 @@ namespace BankOfFiji_WebAPI.Controllers
         /// <returns>A list of company accounts.</returns>
         [HttpPost]
         [Route("getcompanyaccs")]
-        public List<Account> GetCompanyAccs(Account info)
+        public IHttpActionResult GetCompanyAccs(Account info)
         {
             List<Account> List = new List<Account>();
+            try
+            {
+                List = TransferRepo.GetCompanyAccounts(info);
 
-            List = TransferRepo.GetCompanyAccounts(info);
+                return Ok(List);
+            }
+            catch
+            {
+                return NotFound();
+            }
 
-            return List;
         }
 
         // POST api/values
@@ -88,12 +115,17 @@ namespace BankOfFiji_WebAPI.Controllers
         /// <returns>String to state the status of the transaction</returns>
         [HttpPost]
         [Route("transfertoacc")]
-        public string EnableTransfer([FromBody]Transfer info)
+        public IHttpActionResult EnableTransfer([FromBody]Transfer info)
         {
-            string message = TransferRepo.EnableTransfer(info);
-
-            return message;
-
+            try
+            {
+                string message = TransferRepo.EnableTransfer(info);
+                return Ok(message);
+            }
+            catch
+            {
+                return NotFound();
+            }
         }
     }
 }

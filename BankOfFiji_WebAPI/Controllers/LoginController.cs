@@ -18,14 +18,23 @@ namespace BankOfFiji_WebAPI.Controllers
         /// <returns>A string mentioning the result of validation.</returns>
         [HttpPost]
         [Route("authenticate")]
-        public string validate(Login info)
+        public IHttpActionResult validate(Login info)
         {
             if (info == null)
             {
-                return "Invalid Data Entry";
+                return NotFound();
             }
 
-            return LoginRepo.Check_Credentials(info);
+            try
+            {
+                var Result = LoginRepo.Check_Credentials(info);
+
+                return Ok(Result);
+            }
+            catch
+            {
+                return Ok("a system error occured. Please contact administrator.");
+            }
         }
 
         // POST api/values
@@ -36,14 +45,23 @@ namespace BankOfFiji_WebAPI.Controllers
         /// <returns>A list of IDs for the user</returns>
         [HttpPost]
         [Route("idrequest")]
-        public UserDetails retrieve(Login info)
+        public IHttpActionResult retrieve(Login info)
         {
             if (info == null)
             {
-                return null;
+                return NotFound();
             }
 
-            return LoginRepo.Get_UserIDs(info);
+            try
+            {
+                var Result = LoginRepo.Get_UserIDs(info);
+                return Ok(Result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+            
         }
     }
 }

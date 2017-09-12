@@ -37,5 +37,47 @@ namespace BankOfFiji_WebAPI.Repositories
             }
 
         }
+
+        public static List<LoanType> CheckLoanTypes()
+        {
+            BankOfFijiEntities db = new BankOfFijiEntities();
+
+            try
+            {
+                // Check if password is correct
+                var query = (from all in db.LoanType
+                            select all).ToList();
+
+                // Username does not exist
+                return query;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return null;
+            }
+
+        }
+
+        public static List<AssetType> CheckAssetTypes()
+        {
+            BankOfFijiEntities db = new BankOfFijiEntities();
+
+            try
+            {
+                // Check if password is correct
+                var query = (from all in db.AssetType
+                             select all).ToList();
+
+                // Username does not exist
+                return query;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return null;
+            }
+
+        }
     }
 }

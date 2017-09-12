@@ -30,5 +30,49 @@ namespace BankOfFiji_WebAPI.Controllers
                 return Ok("Hm. Seems like something went wrong.");
             }
         }
+
+        // POST api/values
+        /// <summary>
+        /// Accumulate all available loan types
+        /// </summary>
+        /// <returns>A list of all avaialble loan types.</returns>
+        [HttpGet]
+        [Route("loantype")]
+        public IHttpActionResult getloantype()
+        {
+            List<LoanType> List = new List<LoanType>();
+
+            try
+            {
+                List = LoanRepo.CheckLoanTypes();
+                return Ok(List);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        // POST api/values
+        /// <summary>
+        /// Accumulate all available loan types
+        /// </summary>
+        /// <returns>A list of all avaialble loan types.</returns>
+        [HttpGet]
+        [Route("assettypes")]
+        public IHttpActionResult getassettype()
+        {
+            List<AssetType> List = new List<AssetType>();
+
+            try
+            {
+                List = LoanRepo.CheckAssetTypes();
+                return Ok(List);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

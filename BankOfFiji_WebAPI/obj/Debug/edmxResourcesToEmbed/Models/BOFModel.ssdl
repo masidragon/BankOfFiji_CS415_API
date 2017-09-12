@@ -42,6 +42,13 @@
     <Property Name="assetTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="assetTypeDesc" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
+  <EntityType Name="Automatic_Payment_State">
+    <Key>
+      <PropertyRef Name="State_ID" />
+    </Key>
+    <Property Name="State_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="State_descript" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="AutoPayments">
     <Key>
       <PropertyRef Name="paymentNo" />
@@ -52,10 +59,11 @@
     <Property Name="destinationAccount" Type="int" Nullable="false" />
     <Property Name="paymentAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="scheduleId" Type="int" Nullable="false" />
-    <Property Name="startDate" Type="date" Nullable="false" />
-    <Property Name="nextDate" Type="date" Nullable="false" />
-    <Property Name="endDate" Type="date" Nullable="false" />
-    <Property Name="terminationDate" Type="date" />
+    <Property Name="startDate" Type="datetime" Nullable="false" />
+    <Property Name="nextDate" Type="datetime" Nullable="false" />
+    <Property Name="endDate" Type="datetime" Nullable="false" />
+    <Property Name="terminationDate" Type="datetime" />
+    <Property Name="State_ID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="BankAccount">
     <Key>
@@ -71,6 +79,7 @@
     <Property Name="totalInterest" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="taxId" Type="int" Nullable="false" />
     <Property Name="accountStatusId" Type="int" Nullable="false" />
+    <Property Name="interestdate" Type="datetime" />
   </EntityType>
   <EntityType Name="CustomerProfile">
     <Key>
@@ -166,16 +175,7 @@
     </Key>
     <Property Name="scheduleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="schedule" Type="varchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
+    <Property Name="scheduleperiod" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TaxRates">
     <Key>
@@ -322,6 +322,18 @@
       </Principal>
       <Dependent Role="AutoPayments">
         <PropertyRef Name="destinationAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AutoPayments_Automatic_Payment_State">
+    <End Role="Automatic_Payment_State" Type="Self.Automatic_Payment_State" Multiplicity="1" />
+    <End Role="AutoPayments" Type="Self.AutoPayments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Automatic_Payment_State">
+        <PropertyRef Name="State_ID" />
+      </Principal>
+      <Dependent Role="AutoPayments">
+        <PropertyRef Name="State_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -493,43 +505,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="BankOfFijiModelStoreContainer">
     <EntitySet Name="AccountApplications" EntityType="Self.AccountApplications" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AccountStatus" EntityType="Self.AccountStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AccountType" EntityType="Self.AccountType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ApplicationStatus" EntityType="Self.ApplicationStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AssetType" EntityType="Self.AssetType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Automatic_Payment_State" EntityType="Self.Automatic_Payment_State" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AutoPayments" EntityType="Self.AutoPayments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BankAccount" EntityType="Self.BankAccount" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CustomerProfile" EntityType="Self.CustomerProfile" Schema="dbo" store:Type="Tables" />
@@ -541,7 +523,6 @@
     <EntitySet Name="LoanType" EntityType="Self.LoanType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Scheduler" EntityType="Self.Scheduler" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TaxRates" EntityType="Self.TaxRates" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TransactionType" EntityType="Self.TransactionType" Schema="dbo" store:Type="Tables" />
@@ -580,6 +561,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_AutoPayments_Account1" Association="Self.FK_AutoPayments_Account1">
       <End Role="BankAccount" EntitySet="BankAccount" />
+      <End Role="AutoPayments" EntitySet="AutoPayments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AutoPayments_Automatic_Payment_State" Association="Self.FK_AutoPayments_Automatic_Payment_State">
+      <End Role="Automatic_Payment_State" EntitySet="Automatic_Payment_State" />
       <End Role="AutoPayments" EntitySet="AutoPayments" />
     </AssociationSet>
     <AssociationSet Name="FK_AutoPayments_Scheduler" Association="Self.FK_AutoPayments_Scheduler">

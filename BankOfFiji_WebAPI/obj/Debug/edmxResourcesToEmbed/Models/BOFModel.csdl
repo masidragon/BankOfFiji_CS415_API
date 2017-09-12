@@ -61,14 +61,16 @@
     <Property Name="destinationAccount" Type="Int32" Nullable="false" />
     <Property Name="paymentAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="scheduleId" Type="Int32" Nullable="false" />
-    <Property Name="startDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="nextDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="endDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="terminationDate" Type="DateTime" Precision="0" />
+    <Property Name="startDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nextDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="endDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="terminationDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="BankAccount" Relationship="Self.FK_AutoPayments_Account" FromRole="AutoPayments" ToRole="BankAccount" />
     <NavigationProperty Name="BankAccount1" Relationship="Self.FK_AutoPayments_Account1" FromRole="AutoPayments" ToRole="BankAccount" />
     <NavigationProperty Name="Scheduler" Relationship="Self.FK_AutoPayments_Scheduler" FromRole="AutoPayments" ToRole="Scheduler" />
     <NavigationProperty Name="TransactionType" Relationship="Self.FK_AutoPayments_TransactionType" FromRole="AutoPayments" ToRole="TransactionType" />
+    <Property Name="State_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Automatic_Payment_State" Relationship="BankOfFijiModel.FK_AutoPayments_Automatic_Payment_State" FromRole="AutoPayments" ToRole="Automatic_Payment_State" />
   </EntityType>
   <EntityType Name="BankAccount">
     <Key>
@@ -93,6 +95,7 @@
     <NavigationProperty Name="LoanApplications" Relationship="Self.FK_LoanApplications_BankAccount" FromRole="BankAccount" ToRole="LoanApplications" />
     <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_DestinationAccount" FromRole="BankAccount" ToRole="Transactions" />
     <NavigationProperty Name="Transactions1" Relationship="Self.FK_Transactions_SourceAccount" FromRole="BankAccount" ToRole="Transactions" />
+    <Property Name="interestdate" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="CustomerProfile">
     <Key>
@@ -202,16 +205,7 @@
     <Property Name="scheduleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="schedule" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="AutoPayments" Relationship="Self.FK_AutoPayments_Scheduler" FromRole="Scheduler" ToRole="AutoPayments" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="scheduleperiod" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="TaxRates">
     <Key>
@@ -556,7 +550,6 @@
     <EntitySet Name="LoanType" EntityType="Self.LoanType" />
     <EntitySet Name="Roles" EntityType="Self.Roles" />
     <EntitySet Name="Scheduler" EntityType="Self.Scheduler" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="TaxRates" EntityType="Self.TaxRates" />
     <EntitySet Name="Transactions" EntityType="Self.Transactions" />
     <EntitySet Name="TransactionType" EntityType="Self.TransactionType" />
@@ -683,6 +676,11 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Automatic_Payment_State" EntityType="BankOfFijiModel.Automatic_Payment_State" />
+    <AssociationSet Name="FK_AutoPayments_Automatic_Payment_State" Association="BankOfFijiModel.FK_AutoPayments_Automatic_Payment_State">
+      <End Role="Automatic_Payment_State" EntitySet="Automatic_Payment_State" />
+      <End Role="AutoPayments" EntitySet="AutoPayments" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -695,4 +693,24 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="Automatic_Payment_State">
+    <Key>
+      <PropertyRef Name="State_ID" />
+    </Key>
+    <Property Name="State_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="State_descript" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AutoPayments" Relationship="BankOfFijiModel.FK_AutoPayments_Automatic_Payment_State" FromRole="Automatic_Payment_State" ToRole="AutoPayments" />
+  </EntityType>
+  <Association Name="FK_AutoPayments_Automatic_Payment_State">
+    <End Type="BankOfFijiModel.Automatic_Payment_State" Role="Automatic_Payment_State" Multiplicity="1" />
+    <End Type="BankOfFijiModel.AutoPayments" Role="AutoPayments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Automatic_Payment_State">
+        <PropertyRef Name="State_ID" />
+      </Principal>
+      <Dependent Role="AutoPayments">
+        <PropertyRef Name="State_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

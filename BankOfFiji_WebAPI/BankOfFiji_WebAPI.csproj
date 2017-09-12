@@ -215,6 +215,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoanController.cs" />
@@ -241,6 +242,9 @@
       <DependentUpon>BOFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AssetType.cs">
+      <DependentUpon>BOFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Automatic_Payment_State.cs">
       <DependentUpon>BOFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AutoPayments.cs">
@@ -299,9 +303,6 @@
       <DependentUpon>BOFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>BOFModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>BOFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TaxRates.cs">

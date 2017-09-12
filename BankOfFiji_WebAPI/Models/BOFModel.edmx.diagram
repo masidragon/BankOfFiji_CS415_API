@@ -21,7 +21,6 @@
         <EntityTypeShape EntityType="BankOfFijiModel.LoanType" Width="1.5" PointX="9" PointY="14.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BankOfFijiModel.Roles" Width="1.5" PointX="1.5" PointY="16.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BankOfFijiModel.Scheduler" Width="1.5" PointX="6" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BankOfFijiModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BankOfFijiModel.TaxRates" Width="1.5" PointX="3.75" PointY="12.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BankOfFijiModel.Transactions" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="BankOfFijiModel.TransactionType" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
@@ -49,6 +48,8 @@
         <AssociationConnector Association="BankOfFijiModel.FK_LoanRecords_LoanStatus" ManuallyRouted="false" />
         <AssociationConnector Association="BankOfFijiModel.FK_Users_Roles" ManuallyRouted="false" />
         <AssociationConnector Association="BankOfFijiModel.FK_Transactions_TransactionType" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BankOfFijiModel.Automatic_Payment_State" Width="1.5" PointX="12.375" PointY="0.875" />
+        <AssociationConnector Association="BankOfFijiModel.FK_AutoPayments_Automatic_Payment_State" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

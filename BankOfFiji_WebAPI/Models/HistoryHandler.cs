@@ -7,7 +7,6 @@ namespace BankOfFiji_WebAPI.Models
 {
     public class HistoryHandler
     {
-        public int CustomerID { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
         public int AccountNumber { get; set; }

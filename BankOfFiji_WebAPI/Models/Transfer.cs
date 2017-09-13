@@ -12,5 +12,8 @@ namespace BankOfFiji_WebAPI.Models
         public int Transac_Type_ID { get; set; }
         public decimal Trans_Amount { get; set; }
         public int Acc_ID { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
+        public int Interval { get; set; }
     }
 }

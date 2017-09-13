@@ -55,9 +55,9 @@ namespace BankOfFiji_WebAPI.Controllers
 
         // POST api/values
         /// <summary>
-        /// Accumulate all available loan types
+        /// Accumulate all available asset types
         /// </summary>
-        /// <returns>A list of all avaialble loan types.</returns>
+        /// <returns>A list of all avaialble asset types.</returns>
         [HttpGet]
         [Route("assettypes")]
         public IHttpActionResult getassettype()

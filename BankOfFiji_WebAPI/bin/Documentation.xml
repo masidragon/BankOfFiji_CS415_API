@@ -481,6 +481,17 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:BankOfFiji_WebAPI.Controllers.AccountsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BankOfFiji_WebAPI.Controllers.AccountsController.GetAccounts">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:BankOfFiji_WebAPI.Controllers.DashboardController.searchuser(System.Int32)">
             <summary>
             Verify the user exists in the system and return their details.
@@ -503,9 +514,9 @@
         </member>
         <member name="M:BankOfFiji_WebAPI.Controllers.LoanController.getassettype">
             <summary>
-            Accumulate all available loan types
+            Accumulate all available asset types
             </summary>
-            <returns>A list of all avaialble loan types.</returns>
+            <returns>A list of all avaialble asset types.</returns>
         </member>
         <member name="M:BankOfFiji_WebAPI.Controllers.LoginController.validate(BankOfFiji_WebAPI.Models.Login)">
             <summary>
@@ -563,6 +574,26 @@
             </summary>
             <param Transfer="info"></param>
             <returns>String to state the status of the transaction</returns>
+        </member>
+        <member name="M:BankOfFiji_WebAPI.Controllers.TransferController.GetIntervals">
+            <summary>
+            Retrieves all possible automatic payment intervals for view
+            </summary>
+            <returns>A list of Scheduler objects for the view</returns>
+        </member>
+        <member name="M:BankOfFiji_WebAPI.Controllers.TransferController.GetAllAutoPayments(System.Int32)">
+            <summary>
+            Retrieves all scheduled payments for user view
+            </summary>
+            /// <param int="CustID"></param>
+            <returns>A list of AutoPayments objects for the view</returns>
+        </member>
+        <member name="M:BankOfFiji_WebAPI.Controllers.TransferController.Terminate(System.Int32)">
+            <summary>
+            Terminate schduled tasks from database
+            </summary>
+            /// <param int="AutoPaymentID"></param>
+            <returns>A string notifying users of the status of the termination</returns>
         </member>
     </members>
 </doc>

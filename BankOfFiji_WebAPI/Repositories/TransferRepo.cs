@@ -8,8 +8,8 @@ using System.Web;
 
 namespace BankOfFiji_WebAPI.Repositories
 {
-	public class TransferRepo
-	{
+    public class TransferRepo
+    {
         public static List<Account> CheckBankAccounts(int info)
         {
             BankOfFijiEntities db = new BankOfFijiEntities();
@@ -58,6 +58,23 @@ namespace BankOfFiji_WebAPI.Repositories
             }
         }
 
+        public static List<Scheduler> GetAutoIntervals()
+        {
+            BankOfFijiEntities db = new BankOfFijiEntities();
+
+            try
+            {
+                var Intervals = (from all in db.Scheduler
+                                 select all).ToList();
+
+                return Intervals;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public static List<Account> GetOtherAccounts(Account info)
         {
             BankOfFijiEntities db = new BankOfFijiEntities();
@@ -65,8 +82,8 @@ namespace BankOfFiji_WebAPI.Repositories
             try
             {
                 var CheckAccs = (from all in db.BankAccount
-                                where all.userId == info.UserID && all.accountNo != info.ID
-                                select all).ToList();
+                                 where all.userId == info.UserID && all.accountNo != info.ID
+                                 select all).ToList();
 
                 List<Account> newlist = new List<Account>();
                 foreach (var item in CheckAccs)
@@ -95,25 +112,25 @@ namespace BankOfFiji_WebAPI.Repositories
 
             try
             {
-                var FindAllCompanies =  (from all in db.Users
+                var FindAllCompanies = (from all in db.Users
                                         where all.roleId == 1001
                                         select all).ToList();
 
-                List <BankAccount> CheckAccs = new List<BankAccount>();
+                List<BankAccount> CheckAccs = new List<BankAccount>();
                 List<Account> newlist = new List<Account>();
 
                 foreach (var item in FindAllCompanies)
                 {
                     CheckAccs = (from all in db.BankAccount
-                                     where all.userId == item.userId
-                                     select all).ToList();
-                    
+                                 where all.userId == item.userId
+                                 select all).ToList();
+
                     foreach (var result in CheckAccs)
                     {
                         Account newentry = new Account();
 
                         newentry.ID = result.accountNo;
-                        newentry.Type = result.AccountType.accountTypeDesc;
+                        newentry.Type = result.Users.firstName;
 
                         newlist.Add(newentry);
                     }
@@ -128,28 +145,138 @@ namespace BankOfFiji_WebAPI.Repositories
             }
         }
 
-        public static string EnableTransfer(Transfer info)
+        public static List<AutoPayments> GetAutoPayments(int CustID)
+        {
+            BankOfFijiEntities db = new BankOfFijiEntities();
+
+            List<AutoPayments> FinalList = new List<AutoPayments>();
+            try
+            {
+                var FindAccs = (from all in db.BankAccount
+                               where all.userId == CustID
+                               select all.accountNo).ToList();
+
+                foreach(var item in FindAccs)
+                {
+                    var query = (from all in db.AutoPayments
+                                 where (all.scheduleId == 2 || all.scheduleId == 1) && all.sourceAccount == item
+                                 select all).ToList();
+
+                    foreach (var autopayment in query)
+                    {
+                        FinalList.Add(autopayment);
+                    }
+                }
+
+                return FinalList;
+                
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+
+        public static string TerminateAutoPayments(int AutoPaymentID)
         {
             BankOfFijiEntities db = new BankOfFijiEntities();
 
             try
             {
+                var FindAutoPayment = db.AutoPayments.Find(AutoPaymentID);
+                FindAutoPayment.State_ID = 4;
+                db.SaveChanges();
+
+                return "Scheduled payment from Account: " + FindAutoPayment.sourceAccount + " to Account: " + FindAutoPayment.destinationAccount + " has been terminated!";
+            }
+            catch
+            {
+                return "An error as occured Please contact administrators.";
+            }
+
+        }
+
+
+        public static string EnableTransfer(Transfer info)
+        {
+            try
+            {
+                BankOfFijiEntities db = new BankOfFijiEntities();
+
+                // If Automatic Transfers was passed to API
+                if (info.StartDate != null || info.EndDate != null)
+                {
+                    AutoPayments SetUpScheduler = new AutoPayments();
+
+                    DateTime Today = DateTime.Parse(DateTime.Now.Date.ToString(), System.Globalization.CultureInfo.GetCultureInfo("en-us"));
+                    DateTime Start = DateTime.Parse(info.StartDate, System.Globalization.CultureInfo.GetCultureInfo("en-us"));
+                    DateTime End = DateTime.Parse(info.EndDate, System.Globalization.CultureInfo.GetCultureInfo("en-us"));
+
+                    SetUpScheduler.transactionTypeId = info.Transac_Type_ID;
+                    SetUpScheduler.sourceAccount = info.Acc_ID;
+                    SetUpScheduler.destinationAccount = info.TransferAcc_ID;
+                    SetUpScheduler.paymentAmount = info.Trans_Amount;
+                    SetUpScheduler.scheduleId = info.Interval;
+                    SetUpScheduler.startDate = Start;
+
+                    var FindDaysTillNext = (from all in db.Scheduler
+                                            where all.scheduleId == info.Interval
+                                            select all.scheduleperiod).FirstOrDefault();
+
+
+                    SetUpScheduler.nextDate = Start.AddDays(FindDaysTillNext);
+                    SetUpScheduler.endDate = End;
+                    SetUpScheduler.terminationDate = Start.AddYears(100);
+                    SetUpScheduler.State_ID = 2;
+
+                    if (Start == Today)
+                    {
+                        // Decrement from account
+                        var AutoDecrement = db.BankAccount.Find(info.Acc_ID);
+                        AutoDecrement.creditBal = AutoDecrement.creditBal - info.Trans_Amount;
+
+                        // Increment to account
+                        var AutoIncrement = db.BankAccount.Find(info.TransferAcc_ID);
+                        AutoIncrement.creditBal = AutoIncrement.creditBal + info.Trans_Amount;
+
+                        // Make transaction entry
+                        Transactions AutoNewEntry = new Transactions();
+
+                        AutoNewEntry.transcId = Guid.NewGuid();
+                        AutoNewEntry.transactionTypeId = info.Transac_Type_ID;
+                        AutoNewEntry.transcAmount = info.Trans_Amount;
+                        AutoNewEntry.transcDate = DateTime.Now;
+                        AutoNewEntry.sourceAccount = info.Acc_ID;
+                        AutoNewEntry.destinationAccount = info.TransferAcc_ID;
+
+                        db.Transactions.Add(AutoNewEntry);
+                    }
+
+                    db.AutoPayments.Add(SetUpScheduler);
+                    db.SaveChanges();
+                }
+
                 var MoneyExists = from all in db.BankAccount
-                                    where all.creditBal <= info.Trans_Amount && all.accountNo == info.Acc_ID
-                                    select all;
+                                  where all.creditBal < info.Trans_Amount && all.accountNo == info.Acc_ID
+                                  select all;
 
                 if (MoneyExists.Any())
                 {
                     return "Oh no! You have insufficient funds to transfer!";
                 }
-                BankAccount AdjustValues = new BankAccount();
-
-
 
                 Transactions NewEntry = new Transactions();
 
-                var LastID = from all in db.Transactions
-                             select all.transcId;
+                // Decrement from account
+                var Decrement = db.BankAccount.Find(info.Acc_ID);
+                Decrement.creditBal = Decrement.creditBal - info.Trans_Amount;
+
+                // Increment to account
+                var Increment = db.BankAccount.Find(info.TransferAcc_ID);
+                Increment.creditBal = Increment.creditBal + info.Trans_Amount;
+
+                // Make transaction entry
                 NewEntry.transcId = Guid.NewGuid();
                 NewEntry.transactionTypeId = info.Transac_Type_ID;
                 NewEntry.transcAmount = info.Trans_Amount;
@@ -160,7 +287,7 @@ namespace BankOfFiji_WebAPI.Repositories
                 db.Transactions.Add(NewEntry);
                 db.SaveChanges();
 
-                return "Yay! You have sucessfully transfered $" + info.Trans_Amount + " to Acc Number:" + info.TransferAcc_ID + " from Acc Number:" + info.Acc_ID;
+                return "Yay! You have sucessfully transfered $" + info.Trans_Amount + " to Acc Number: " + info.TransferAcc_ID + " from Acc Number: " + info.Acc_ID;
             }
             catch
             {

@@ -10,7 +10,7 @@ namespace BankOfFiji_WebAPI.Controllers
 {
     public class TransferController : ApiController
     {
-        // GET: Transfer
+        // POST api/accscount
         /// <summary>
         /// Get the count of accounts the logged on user has.
         /// </summary>
@@ -18,7 +18,6 @@ namespace BankOfFiji_WebAPI.Controllers
         /// <returns>Count of accounts owned by logged on user.</returns>
         [HttpPost]
         [Route("accscount")]
-        // POST api/values
         public IHttpActionResult CheckAccountsCount([FromBody]int custid)
         {
             try
@@ -35,7 +34,7 @@ namespace BankOfFiji_WebAPI.Controllers
         }
 
 
-        // GET: Transfer
+        // POST/checkaccs
         /// <summary>
         /// Get the account details of the logged on user has.
         /// This populates a drop down menu in the Transfers page
@@ -60,7 +59,7 @@ namespace BankOfFiji_WebAPI.Controllers
             }
         }
 
-        // POST api/values
+        // POST api/getotheracc
         /// <summary>
         /// Upon selecting one value in drop down, this will give give other possible options.
         /// </summary>
@@ -83,7 +82,7 @@ namespace BankOfFiji_WebAPI.Controllers
             }
         }
 
-        // POST api/values
+        // POST api/getcompanyaccs
         /// <summary>
         /// Get a list of all company accounts registered in Bank of Fiji 
         /// </summary>
@@ -107,7 +106,7 @@ namespace BankOfFiji_WebAPI.Controllers
 
         }
 
-        // POST api/values
+        // POST api/transfertoacc
         /// <summary>
         /// Makes a new transfer entry in the database
         /// </summary>
@@ -120,6 +119,68 @@ namespace BankOfFiji_WebAPI.Controllers
             try
             {
                 string message = TransferRepo.EnableTransfer(info);
+                return Ok(message);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        // POST api/values
+        /// <summary>
+        /// Retrieves all possible automatic payment intervals for view
+        /// </summary>
+        /// <returns>A list of Scheduler objects for the view</returns>
+        [HttpPost]
+        [Route("getintervals")]
+        public IHttpActionResult GetIntervals()
+        {
+            try
+            {
+                var message = TransferRepo.GetAutoIntervals();
+                return Ok(message);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        // POST api/values
+        /// <summary>
+        /// Retrieves all scheduled payments for user view
+        /// </summary>
+        /// /// <param int="CustID"></param>
+        /// <returns>A list of AutoPayments objects for the view</returns>
+        [HttpPost]
+        [Route("getautopayments")]
+        public IHttpActionResult GetAllAutoPayments(int CustID)
+        {
+            try
+            {
+                var message = TransferRepo.GetAutoPayments(CustID);
+                return Ok(message);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        // POST api/values
+        /// <summary>
+        /// Terminate schduled tasks from database
+        /// </summary>
+        /// /// <param int="AutoPaymentID"></param>
+        /// <returns>A string notifying users of the status of the termination</returns>
+        [HttpPost]
+        [Route("terminateautopayments")]
+        public IHttpActionResult Terminate(int AutoPaymentID)
+        {
+            try
+            {
+                var message = TransferRepo.TerminateAutoPayments(AutoPaymentID);
                 return Ok(message);
             }
             catch

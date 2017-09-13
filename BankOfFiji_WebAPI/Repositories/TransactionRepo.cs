@@ -17,28 +17,105 @@ namespace BankOfFiji_WebAPI.Repositories
             {
                 DateTime Start = DateTime.Parse(info.StartDate, System.Globalization.CultureInfo.GetCultureInfo("en-us"));
                 DateTime End = DateTime.Parse(info.EndDate, System.Globalization.CultureInfo.GetCultureInfo("en-us"));
+                DateTime Now = DateTime.Now.Date;
 
-                decimal GetBalance = (from all in db.BankAccount
-                                      where all.accountNo == info.AccountNumber
-                                      select all.creditBal).FirstOrDefault();
+                var CheckCurrentBalance = (from all in db.BankAccount
+                                          where all.accountNo == info.AccountNumber
+                                          select all.creditBal).FirstOrDefault();
 
-                var CheckTrans = from all in db.Transactions
-                                where all.transcDate >= Start && all.transcDate <= End && all.BankAccount.accountNo == info.AccountNumber
-                                select all;
+                var LastBatchTransactions = from all in db.Transactions
+                                            where (all.transcDate < Now && all.transcDate > End) && (all.sourceAccount == info.AccountNumber || all.destinationAccount == info.AccountNumber)
+                                            select all;
+
+                foreach(var item in LastBatchTransactions)
+                {
+                    // If DR transaction - BACKTRACK 
+                    if(item.sourceAccount == info.AccountNumber)
+                    {
+                        CheckCurrentBalance = CheckCurrentBalance + item.transcAmount;
+                    }
+                    // If CR transaction - BACKTRACK
+                    else
+                    {
+                        CheckCurrentBalance = CheckCurrentBalance - item.transcAmount;
+                    }
+                }
+
+                // CheckCurrentBalance = Closing Balance
+                decimal ClosingBalance = CheckCurrentBalance;
+
+                var StatementBatchTransactions = from all in db.Transactions
+                                                where (all.transcDate < End && all.transcDate > Start) && (all.sourceAccount == info.AccountNumber || all.destinationAccount == info.AccountNumber)
+                                                select all;
 
                 List<TransactionHistory> newlist = new List<TransactionHistory>();
-                foreach (var item in CheckTrans)
-                {
-                    TransactionHistory newentry = new TransactionHistory();
 
-                    newentry.Amount = item.transcAmount;
-                    newentry.Date = item.transcDate.ToShortDateString();
-                    newentry.DestinationAccount = item.destinationAccount;
-                    newentry.SourceAccount = item.sourceAccount;
-                    newentry.TypeOfTrans = item.TransactionType.TransactionTypeDesc;
-                    newentry.Balance = GetBalance;
-                    newlist.Add(newentry);
+                foreach (var item in StatementBatchTransactions)
+                {
+                    // If DR transaction - BACKTRACK 
+                    if (item.sourceAccount == info.AccountNumber)
+                    {
+                        CheckCurrentBalance = CheckCurrentBalance + item.transcAmount;
+                    }
+                    // If CR transaction - BACKTRACK
+                    else
+                    {
+                        CheckCurrentBalance = CheckCurrentBalance - item.transcAmount;
+                    }
                 }
+
+                // CheckCurrentBalance = Opening Balance
+                TransactionHistory OpeningBalance = new TransactionHistory();
+                OpeningBalance.Adjustment = "CR";
+                OpeningBalance.Amount = CheckCurrentBalance;
+                OpeningBalance.Balance = CheckCurrentBalance;
+                OpeningBalance.Date = Start.ToShortDateString();
+                OpeningBalance.DestinationAccount = info.AccountNumber;
+                OpeningBalance.SourceAccount = info.AccountNumber;
+                OpeningBalance.TypeOfTrans = "Balance B/F";
+                newlist.Add(OpeningBalance);
+
+                foreach (var item in LastBatchTransactions)
+                {
+                    // If DR transaction
+                    if (item.sourceAccount == info.AccountNumber)
+                    {
+                        CheckCurrentBalance = CheckCurrentBalance + item.transcAmount;
+                        TransactionHistory newentry = new TransactionHistory();
+                        newentry.Adjustment = "DR";
+                        newentry.Amount = item.transcAmount;
+                        newentry.Date = item.transcDate.ToShortDateString();
+                        newentry.DestinationAccount = item.destinationAccount;
+                        newentry.SourceAccount = item.sourceAccount;
+                        newentry.TypeOfTrans = item.TransactionType.TransactionTypeDesc;
+                        newentry.Balance = CheckCurrentBalance;
+                        newlist.Add(newentry);
+                    }
+                    // If CR transaction
+                    else
+                    {
+                        CheckCurrentBalance = CheckCurrentBalance + item.transcAmount;
+                        TransactionHistory newentry = new TransactionHistory();
+                        newentry.Adjustment = "CR";
+                        newentry.Amount = item.transcAmount;
+                        newentry.Date = item.transcDate.ToShortDateString();
+                        newentry.DestinationAccount = item.destinationAccount;
+                        newentry.SourceAccount = item.sourceAccount;
+                        newentry.TypeOfTrans = item.TransactionType.TransactionTypeDesc;
+                        newentry.Balance = CheckCurrentBalance;
+                        newlist.Add(newentry);
+                    }
+                }
+
+                TransactionHistory ClosingBalanceEntry = new TransactionHistory();
+                OpeningBalance.Adjustment = "CR";
+                OpeningBalance.Amount = ClosingBalance;
+                OpeningBalance.Balance = CheckCurrentBalance;
+                OpeningBalance.Date = Start.ToShortDateString();
+                OpeningBalance.DestinationAccount = info.AccountNumber;
+                OpeningBalance.SourceAccount = info.AccountNumber;
+                OpeningBalance.TypeOfTrans = "Balance C/F";
+                newlist.Add(ClosingBalanceEntry);
 
                 return newlist;
             }

@@ -132,7 +132,7 @@ namespace BankOfFiji_WebAPI.Controllers
         /// Retrieves all possible automatic payment intervals for view
         /// </summary>
         /// <returns>A list of Scheduler objects for the view</returns>
-        [HttpPost]
+        [HttpGet]
         [Route("getintervals")]
         public IHttpActionResult GetIntervals()
         {

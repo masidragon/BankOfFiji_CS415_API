@@ -58,7 +58,7 @@ namespace BankOfFiji_WebAPI.Repositories
             }
         }
 
-        public static List<Scheduler> GetAutoIntervals()
+        public static List<Intervals> GetAutoIntervals()
         {
             BankOfFijiEntities db = new BankOfFijiEntities();
 
@@ -67,7 +67,19 @@ namespace BankOfFiji_WebAPI.Repositories
                 var Intervals = (from all in db.Scheduler
                                  select all).ToList();
 
-                return Intervals;
+                List<Intervals> List = new List<Intervals>();
+
+                foreach(var item in Intervals)
+                {
+                    Intervals newentry = new Intervals();
+
+                    newentry.IntervalID = item.scheduleId;
+                    newentry.IntervalDescription = item.schedule;
+
+                    List.Add(newentry);
+                }
+
+                return List;
             }
             catch
             {
@@ -209,7 +221,7 @@ namespace BankOfFiji_WebAPI.Repositories
                 {
                     AutoPayments SetUpScheduler = new AutoPayments();
 
-                    DateTime Today = DateTime.Parse(DateTime.Now.Date.ToString(), System.Globalization.CultureInfo.GetCultureInfo("en-us"));
+                    DateTime Today = DateTime.Now;//DateTime.Parse(DateTime.Now.ToString(), System.Globalization.CultureInfo.GetCultureInfo("en-us"));
                     DateTime Start = DateTime.Parse(info.StartDate, System.Globalization.CultureInfo.GetCultureInfo("en-us"));
                     DateTime End = DateTime.Parse(info.EndDate, System.Globalization.CultureInfo.GetCultureInfo("en-us"));
 
@@ -220,6 +232,12 @@ namespace BankOfFiji_WebAPI.Repositories
                     SetUpScheduler.scheduleId = info.Interval;
                     SetUpScheduler.startDate = Start;
 
+                    var FindTransType = (from all in db.TransactionType
+                                        where all.TransactionTypeId == info.Transac_Type_ID
+                                        select all).FirstOrDefault();
+
+                    SetUpScheduler.TransactionType = FindTransType;
+
                     var FindDaysTillNext = (from all in db.Scheduler
                                             where all.scheduleId == info.Interval
                                             select all.scheduleperiod).FirstOrDefault();
@@ -228,6 +246,12 @@ namespace BankOfFiji_WebAPI.Repositories
                     SetUpScheduler.nextDate = Start.AddDays(FindDaysTillNext);
                     SetUpScheduler.endDate = End;
                     SetUpScheduler.terminationDate = Start.AddYears(100);
+
+                    var FindStateType = (from all in db.Automatic_Payment_State
+                                         where all.State_ID == 2
+                                         select all).FirstOrDefault();
+
+                    SetUpScheduler.Automatic_Payment_State = FindStateType;
                     SetUpScheduler.State_ID = 2;
 
                     if (Start == Today)
@@ -289,9 +313,9 @@ namespace BankOfFiji_WebAPI.Repositories
 
                 return "Yay! You have sucessfully transfered $" + info.Trans_Amount + " to Acc Number: " + info.TransferAcc_ID + " from Acc Number: " + info.Acc_ID;
             }
-            catch
+            catch(Exception ex)
             {
-                return "Oh no! Something seems to have gone wrong.";
+                return "Oh no! Something seems to have gone wrong. Error:" + ex;
             }
         }
     }

@@ -70,24 +70,20 @@ namespace BankOfFiji_WebAPI.Repositories
                 OpeningBalance.Amount = CheckCurrentBalance;
                 OpeningBalance.Balance = CheckCurrentBalance;
                 OpeningBalance.Date = Start.ToShortDateString();
-                OpeningBalance.DestinationAccount = info.AccountNumber;
-                OpeningBalance.SourceAccount = info.AccountNumber;
-                OpeningBalance.TypeOfTrans = "Balance B/F";
+                OpeningBalance.Particulars = "Balance B/F";
                 newlist.Add(OpeningBalance);
 
-                foreach (var item in LastBatchTransactions)
+                foreach (var item in StatementBatchTransactions)
                 {
                     // If DR transaction
                     if (item.sourceAccount == info.AccountNumber)
                     {
-                        CheckCurrentBalance = CheckCurrentBalance + item.transcAmount;
+                        CheckCurrentBalance = CheckCurrentBalance - item.transcAmount;
                         TransactionHistory newentry = new TransactionHistory();
                         newentry.Adjustment = "DR";
                         newentry.Amount = item.transcAmount;
                         newentry.Date = item.transcDate.ToShortDateString();
-                        newentry.DestinationAccount = item.destinationAccount;
-                        newentry.SourceAccount = item.sourceAccount;
-                        newentry.TypeOfTrans = item.TransactionType.TransactionTypeDesc;
+                        newentry.Particulars = item.TransactionType.TransactionTypeDesc;
                         newentry.Balance = CheckCurrentBalance;
                         newlist.Add(newentry);
                     }
@@ -99,22 +95,18 @@ namespace BankOfFiji_WebAPI.Repositories
                         newentry.Adjustment = "CR";
                         newentry.Amount = item.transcAmount;
                         newentry.Date = item.transcDate.ToShortDateString();
-                        newentry.DestinationAccount = item.destinationAccount;
-                        newentry.SourceAccount = item.sourceAccount;
-                        newentry.TypeOfTrans = item.TransactionType.TransactionTypeDesc;
+                        newentry.Particulars = item.TransactionType.TransactionTypeDesc;
                         newentry.Balance = CheckCurrentBalance;
                         newlist.Add(newentry);
                     }
                 }
 
                 TransactionHistory ClosingBalanceEntry = new TransactionHistory();
-                OpeningBalance.Adjustment = "CR";
-                OpeningBalance.Amount = ClosingBalance;
-                OpeningBalance.Balance = CheckCurrentBalance;
-                OpeningBalance.Date = Start.ToShortDateString();
-                OpeningBalance.DestinationAccount = info.AccountNumber;
-                OpeningBalance.SourceAccount = info.AccountNumber;
-                OpeningBalance.TypeOfTrans = "Balance C/F";
+                ClosingBalanceEntry.Adjustment = "CR";
+                ClosingBalanceEntry.Amount = ClosingBalance;
+                ClosingBalanceEntry.Balance = CheckCurrentBalance;
+                ClosingBalanceEntry.Date = Start.ToShortDateString();
+                ClosingBalanceEntry.Particulars = "Balance C/F";
                 newlist.Add(ClosingBalanceEntry);
 
                 return newlist;

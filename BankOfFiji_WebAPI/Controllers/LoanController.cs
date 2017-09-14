@@ -16,7 +16,7 @@ namespace BankOfFiji_WebAPI.Controllers
         /// </summary>
         /// <param Loan="info"></param>
         /// <returns>A string to inform system of the status of loan submission.</returns>
-        [HttpGet]
+        [HttpPost]
         [Route("loanapplication")]
         public IHttpActionResult searchuser(Loan info)
         {
@@ -40,7 +40,7 @@ namespace BankOfFiji_WebAPI.Controllers
         [Route("loantype")]
         public IHttpActionResult getloantype()
         {
-            List<LoanType> List = new List<LoanType>();
+            List<LoanTypes> List = new List<LoanTypes>();
 
             try
             {
@@ -62,7 +62,7 @@ namespace BankOfFiji_WebAPI.Controllers
         [Route("assettypes")]
         public IHttpActionResult getassettype()
         {
-            List<AssetType> List = new List<AssetType>();
+            List<AssetTypes> List = new List<AssetTypes>();
 
             try
             {

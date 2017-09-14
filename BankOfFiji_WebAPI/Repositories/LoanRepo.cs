@@ -28,7 +28,7 @@ namespace BankOfFiji_WebAPI.Repositories
                 db.SaveChanges();
 
                 // Username does not exist
-                return "Loan application for $" + info.LoanAmount + " sent succesfully.";
+                return "Yay! Loan application for $" + info.LoanAmount + " sent succesfully.";
             }
             catch (Exception ex)
             {
@@ -38,7 +38,7 @@ namespace BankOfFiji_WebAPI.Repositories
 
         }
 
-        public static List<LoanType> CheckLoanTypes()
+        public static List<LoanTypes> CheckLoanTypes()
         {
             BankOfFijiEntities db = new BankOfFijiEntities();
 
@@ -48,8 +48,17 @@ namespace BankOfFiji_WebAPI.Repositories
                 var query = (from all in db.LoanType
                             select all).ToList();
 
+                List<LoanTypes> List = new List<LoanTypes>();
+
                 // Username does not exist
-                return query;
+                foreach(var item in query)
+                {
+                    LoanTypes NewEntry = new LoanTypes();
+                    NewEntry.LoanID = item.LoanTypeId;
+                    NewEntry.LoanDescription = item.LoanTypeDesc;
+                    List.Add(NewEntry);
+                }
+                return List;
             }
             catch (Exception ex)
             {
@@ -59,18 +68,27 @@ namespace BankOfFiji_WebAPI.Repositories
 
         }
 
-        public static List<AssetType> CheckAssetTypes()
+        public static List<AssetTypes> CheckAssetTypes()
         {
             BankOfFijiEntities db = new BankOfFijiEntities();
 
             try
             {
+                List<AssetTypes> List = new List<AssetTypes>();
                 // Check if password is correct
                 var query = (from all in db.AssetType
                              select all).ToList();
 
+                foreach (var item in query)
+                {
+                    AssetTypes NewEntry = new AssetTypes();
+                    NewEntry.AssetID = item.assetTypeId;
+                    NewEntry.AssetDescription = item.assetTypeDesc;
+                    List.Add(NewEntry);
+                }
+
                 // Username does not exist
-                return query;
+                return List;
             }
             catch (Exception ex)
             {

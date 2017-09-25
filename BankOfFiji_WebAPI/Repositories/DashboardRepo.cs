@@ -14,6 +14,8 @@ namespace BankOfFiji_WebAPI.Repositories
             BankOfFijiEntities db = new BankOfFijiEntities();
             UserDetails Data = new UserDetails();
             List<Account> List = new List<Account>();
+            List<TransactionHistory> Interest = new List<TransactionHistory>();
+            List<TransactionHistory> MonthlyFee = new List<TransactionHistory>();
 
             try
             {
@@ -24,6 +26,14 @@ namespace BankOfFiji_WebAPI.Repositories
                 var ListAccount = (from all in db.BankAccount
                                    where all.userId == custID
                                    select all).ToList();
+
+                var ListInterestEarned = (from all in db.Transactions
+                                          where all.transactionTypeId == 6
+                                          select all).ToList();
+
+                var ListMonthlyFee = (from all in db.Transactions
+                                          where all.transactionTypeId == 8
+                                          select all).ToList();
 
                 foreach (var item in ListAccount)
                 {
@@ -40,6 +50,34 @@ namespace BankOfFiji_WebAPI.Repositories
                     List.Add(newentry);
                 }
 
+                foreach (var item in ListInterestEarned)
+                {
+                    TransactionHistory newentry = new TransactionHistory();
+
+                    newentry.Adjustment = "CR";
+                    newentry.Amount = item.transcAmount;
+                    newentry.Balance = 0;
+                    newentry.Date = item.transcDate.ToShortDateString();
+                    newentry.Particulars = item.TransactionType.TransactionTypeDesc;
+                    newentry.AccountRequested = item.destinationAccount;
+
+                    Interest.Add(newentry);
+                }
+
+                foreach (var item in ListMonthlyFee)
+                {
+                    TransactionHistory newentry = new TransactionHistory();
+
+                    newentry.Adjustment = "DR";
+                    newentry.Amount = item.transcAmount;
+                    newentry.Balance = 0;
+                    newentry.Date = item.transcDate.ToShortDateString();
+                    newentry.Particulars = item.TransactionType.TransactionTypeDesc;
+                    newentry.AccountRequested = item.sourceAccount;
+
+                    MonthlyFee.Add(newentry);
+                }
+
 
                 if (FindProfile.Any())
                 {
@@ -53,6 +91,8 @@ namespace BankOfFiji_WebAPI.Repositories
                     Data.HomeAddress = obj.address;
                     Data.PostalAddress = obj.postal;
                     Data.AccountList = List;
+                    Data.InterestEarned = Interest;
+                    Data.MonthlyFees = MonthlyFee;
                     return Data;
                 }
 

@@ -558,3 +558,5 @@ C:\Users\wj039242\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\bin\System
 C:\Users\wj039242\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.csprojResolveAssemblyReference.cache
 C:\Users\wj039242\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.dll
 C:\Users\wj039242\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.pdb
+C:\Users\Intervention\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\bin\itextsharp.dll
+C:\Users\Intervention\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\bin\itextsharp.xml

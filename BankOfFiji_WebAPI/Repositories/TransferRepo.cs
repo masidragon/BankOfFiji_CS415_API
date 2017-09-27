@@ -217,7 +217,7 @@ namespace BankOfFiji_WebAPI.Repositories
                 BankOfFijiEntities db = new BankOfFijiEntities();
 
                 // If Automatic Transfers was passed to API
-                if (info.StartDate != null || info.EndDate != null)
+                if (info.StartDate != "0001-01-01T00:00:00" || info.EndDate != "0001-01-01T00:00:00")
                 {
                     AutoPayments SetUpScheduler = new AutoPayments();
 

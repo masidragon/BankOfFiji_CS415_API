@@ -1,7 +1,11 @@
 ﻿using BankOfFiji_WebAPI.Models;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -116,6 +120,69 @@ namespace BankOfFiji_WebAPI.Repositories
                List<TransactionHistory> ViewContent = null;
                 return ViewContent;
             }
+        }
+
+        public static DataTable InterestPDF()
+        {
+            BankOfFijiEntities db = new BankOfFijiEntities();
+
+            DataTable newpdf = new DataTable();
+
+            newpdf.Columns.Add("Particulars");
+            newpdf.Columns.Add("Interest Income/Expense (Current)");
+            newpdf.Columns.Add("Interest Income/Expense (Prior)");
+
+            var InterestIncomeCurrent = from all in db.Transactions
+                                        where all.destinationAccount == 10 && all.transactionTypeId == 11 && DateTime.Now.Year == all.transcDate.Year
+                                        orderby all.transcDate descending
+                                        select all;
+
+            var InterestIncomePrior = from all in db.Transactions
+                                        where all.destinationAccount == 10 && all.transactionTypeId == 11 && (DateTime.Now.Year-1) == all.transcDate.Year
+                                      orderby all.transcDate descending
+                                      select all;
+
+            var InterestExpenseCurrent = from all in db.Transactions
+                                        where all.sourceAccount == 10 && all.transactionTypeId == 14 && DateTime.Now.Year == all.transcDate.Year
+                                        orderby all.transcDate descending
+                                        select all;
+
+            var InterestExpensePrior = from all in db.Transactions
+                                      where all.sourceAccount == 10 && all.transactionTypeId == 14 && (DateTime.Now.Year - 1) == all.transcDate.Year
+                                      orderby all.transcDate descending
+                                      select all;
+
+            decimal InterestIncomeCurrentSum = 0;
+            decimal InterestIncomePriorSum = 0;
+            decimal InterestExpenseCurrentSum = 0;
+            decimal InterestExpensePriorSum = 0;
+
+            foreach (var item in InterestIncomeCurrent)
+            {
+                InterestIncomeCurrentSum = item.transcAmount + InterestIncomeCurrentSum;
+            }
+
+            foreach (var item in InterestIncomePrior)
+            {
+                InterestIncomePriorSum = item.transcAmount + InterestIncomePriorSum;
+            }
+
+            foreach (var item in InterestExpenseCurrent)
+            {
+                InterestExpenseCurrentSum = item.transcAmount + InterestExpenseCurrentSum;
+            }
+
+            foreach (var item in InterestExpensePrior)
+            {
+                InterestExpensePriorSum = item.transcAmount + InterestExpensePriorSum;
+            }
+
+            newpdf.Rows.Add("Interest Income", InterestIncomeCurrentSum.ToString(), InterestIncomePriorSum.ToString());
+            newpdf.Rows.Add("Interest Expense", InterestExpenseCurrentSum.ToString(), InterestExpensePriorSum.ToString());
+            newpdf.Rows.Add("Net Interest Income", (InterestIncomeCurrentSum - InterestExpenseCurrentSum).ToString(), (InterestIncomePriorSum - InterestExpensePriorSum).ToString());
+
+           
+            return newpdf;
         }
     }
 }

@@ -2,6 +2,7 @@
 using BankOfFiji_WebAPI.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -35,6 +36,25 @@ namespace BankOfFiji_WebAPI.Controllers
                 return NotFound();
             }
             
+        }
+
+        [HttpGet]
+        [Route("interestpdf")]
+        public IHttpActionResult InterestPDF()
+        {
+            DataTable PDF = new DataTable();
+
+            try
+            {
+                PDF = TransactionRepo.InterestPDF();
+
+                return Ok(PDF);
+            }
+            catch
+            {
+                return NotFound();
+            }
+
         }
     }
 }

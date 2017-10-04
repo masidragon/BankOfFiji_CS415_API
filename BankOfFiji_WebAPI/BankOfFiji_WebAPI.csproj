@@ -310,6 +310,7 @@
       <DependentUpon>BOFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NotificationReturn.cs" />
+    <Compile Include="Models\NotificationsController.cs" />
     <Compile Include="Models\Roles.cs">
       <DependentUpon>BOFModel.tt</DependentUpon>
     </Compile>
@@ -423,6 +424,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Notifications\Create.cshtml" />
+    <Content Include="Views\Notifications\Delete.cshtml" />
+    <Content Include="Views\Notifications\Details.cshtml" />
+    <Content Include="Views\Notifications\Edit.cshtml" />
+    <Content Include="Views\Notifications\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,7 @@
 ﻿using BankOfFiji_WebAPI.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
@@ -110,6 +111,36 @@ namespace BankOfFiji_WebAPI.Repositories
             BankOfFijiEntities db = new BankOfFijiEntities();
 
             return (from all in db.Notification select all).ToList();
-        } 
+        }
+
+        public static Notification GetSingleNotifications(int info)
+        {
+            BankOfFijiEntities db = new BankOfFijiEntities();
+
+            try
+            {
+                return db.Notification.Find(info);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static string SetSingleNotifications(Notification info)
+        {
+            BankOfFijiEntities db = new BankOfFijiEntities();
+
+            try
+            {
+                db.Entry(info).State = EntityState.Modified;
+                db.SaveChanges();
+                return "Yay! Notification setting changed!";
+            }
+            catch
+            {
+                return "Oops! Something seems to have gone wrong!";
+            }
+        }
     }
 }

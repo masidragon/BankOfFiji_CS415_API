@@ -506,6 +506,13 @@
             <param name="CustID"></param>
             <returns>The user details for the dashboard view.</returns>
         </member>
+        <member name="M:BankOfFiji_WebAPI.Controllers.DashboardController.getsinglenotifications(System.Int32)">
+            <summary>
+            Verify the user exists in the system and return their details.
+            </summary>
+            <param name="CustID"></param>
+            <returns>The user details for the dashboard view.</returns>
+        </member>
         <member name="M:BankOfFiji_WebAPI.Controllers.LoanController.searchuser(BankOfFiji_WebAPI.Models.Loan)">
             <summary>
             Submission of loan application into the database

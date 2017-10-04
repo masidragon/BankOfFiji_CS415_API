@@ -1,0 +1,34 @@
+﻿@model BankOfFiji_WebAPI.Models.Notification
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Notification</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NotificationType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotificationType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotificationStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotificationStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NotificationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -52,7 +52,7 @@ namespace BankOfFiji_WebAPI.Aspects
                     }
                     else if (args.Method.Name == "LowBalance")
                     {
-                        mail.Subject = "Bank of Fiji - Transfer Successful!";
+                        mail.Subject = "Bank of Fiji - Low Account Balance!";
                         EmailBody = "Hi, " + FirstName + "! Your account #" + Handler.Acc_ID + " has a balance less than $10.00! Thank you for doing business with Bank of Fiji!";
                     }
 

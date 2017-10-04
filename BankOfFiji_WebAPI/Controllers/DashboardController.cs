@@ -69,21 +69,38 @@ namespace BankOfFiji_WebAPI.Controllers
         /// </summary>
         /// <param name="CustID"></param>
         /// <returns>The user details for the dashboard view.</returns>
-        //[HttpPost]
-        //[Route("setnotifications")]
-        //public IHttpActionResult setnotifications(Notification info)
-        //{
-        //    try
-        //    {
-        //        //var Result = DashboardRepo.SetAllNotifications();
+        [HttpGet]
+        [Route("getsinglenotifications")]
+        public IHttpActionResult getsinglenotifications(int info)
+        {
+            try
+            {
+                var Result = DashboardRepo.GetSingleNotifications(info);
 
-        //        return Ok(Result);
-        //    }
-        //    catch
-        //    {
-        //        return NotFound();
-        //    }
+                return Ok(Result);
+            }
+            catch
+            {
+                return NotFound();
+            }
 
-        //}
+        }
+
+        [HttpPost]
+        [Route("setsinglenotifications")]
+        public IHttpActionResult setsinglenotifications(Notification info)
+        {
+            try
+            {
+                var Result = DashboardRepo.SetSingleNotifications(info);
+
+                return Ok(Result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+
+        }
     }
 }

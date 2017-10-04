@@ -48,6 +48,7 @@ namespace BankOfFiji_WebAPI.Models
         public virtual DbSet<TransactionType> TransactionType { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Automatic_Payment_State> Automatic_Payment_State { get; set; }
+        public virtual DbSet<Notification> Notification { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

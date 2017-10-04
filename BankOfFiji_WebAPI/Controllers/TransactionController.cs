@@ -38,9 +38,9 @@ namespace BankOfFiji_WebAPI.Controllers
             
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("interestpdf")]
-        public IHttpActionResult InterestPDF()
+        public IHttpActionResult InterestPDF(HistoryHandler HistoryParam)
         {
             DataTable PDF = new DataTable();
 

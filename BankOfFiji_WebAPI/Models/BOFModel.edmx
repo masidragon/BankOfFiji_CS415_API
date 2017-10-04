@@ -85,6 +85,10 @@
           <Property Name="taxId" Type="int" Nullable="false" />
           <Property Name="accountStatusId" Type="int" Nullable="false" />
           <Property Name="interestdate" Type="datetime" />
+          <Property Name="nonresident_tax" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="withdrawal_tax" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="withdrawal_monthly_counter" Type="int" />
+          <Property Name="business_tax" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="CustomerProfile">
           <Key>
@@ -128,6 +132,7 @@
           <Property Name="interestRateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="interestRateDetails" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="rateValue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FIRCARates" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="LoanApplications">
           <Key>
@@ -138,9 +143,14 @@
           <Property Name="assetTypeId" Type="int" Nullable="false" />
           <Property Name="monthlyRent/MortageAmt" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="desiredLoanAmt" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="loan_amountpaid" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="total_interestpaid" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="loan_interestrate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="loan_nextinterestdate" Type="datetime" />
           <Property Name="loanTypeId" Type="int" Nullable="false" />
           <Property Name="approver" Type="varchar(max)" />
           <Property Name="approvedDate" Type="datetime" />
+          <Property Name="loanEnddate" Type="datetime" />
           <Property Name="applicationStatusId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="LoanRecords">
@@ -166,6 +176,14 @@
           <Property Name="LoanTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LoanTypeDesc" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="LoanInterestRate" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="NotificationID" />
+          </Key>
+          <Property Name="NotificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NotificationType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NotificationStatus" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -526,6 +544,7 @@
           <EntitySet Name="LoanRecords" EntityType="Self.LoanRecords" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoanStatus" EntityType="Self.LoanStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoanType" EntityType="Self.LoanType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Scheduler" EntityType="Self.Scheduler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TaxRates" EntityType="Self.TaxRates" Schema="dbo" store:Type="Tables" />
@@ -729,6 +748,10 @@
           <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_DestinationAccount" FromRole="BankAccount" ToRole="Transactions" />
           <NavigationProperty Name="Transactions1" Relationship="Self.FK_Transactions_SourceAccount" FromRole="BankAccount" ToRole="Transactions" />
           <Property Name="interestdate" Type="DateTime" Precision="3" />
+          <Property Name="nonresident_tax" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="withdrawal_tax" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="withdrawal_monthly_counter" Type="Int32" />
+          <Property Name="business_tax" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="CustomerProfile">
           <Key>
@@ -775,6 +798,7 @@
           <Property Name="interestRateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="interestRateDetails" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="rateValue" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FIRCARates" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="LoanApplications">
           <Key>
@@ -794,6 +818,11 @@
           <NavigationProperty Name="BankAccount" Relationship="Self.FK_LoanApplications_BankAccount" FromRole="LoanApplications" ToRole="BankAccount" />
           <NavigationProperty Name="LoanType" Relationship="Self.FK_LoanApplications_LoanType" FromRole="LoanApplications" ToRole="LoanType" />
           <NavigationProperty Name="LoanRecords" Relationship="Self.FK_LoanRecords_LoanApplications" FromRole="LoanApplications" ToRole="LoanRecords" />
+          <Property Name="loan_amountpaid" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="total_interestpaid" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="loan_interestrate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="loan_nextinterestdate" Type="DateTime" Precision="3" />
+          <Property Name="loanEnddate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="LoanRecords">
           <Key>
@@ -1314,6 +1343,7 @@
             <End Role="Automatic_Payment_State" EntitySet="Automatic_Payment_State" />
             <End Role="AutoPayments" EntitySet="AutoPayments" />
           </AssociationSet>
+          <EntitySet Name="Notification" EntityType="BankOfFijiModel.Notification" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1346,6 +1376,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="NotificationID" />
+          </Key>
+          <Property Name="NotificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NotificationType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NotificationStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1419,6 +1457,10 @@
           <EntitySetMapping Name="BankAccount">
             <EntityTypeMapping TypeName="BankOfFijiModel.BankAccount">
               <MappingFragment StoreEntitySet="BankAccount">
+                <ScalarProperty Name="business_tax" ColumnName="business_tax" />
+                <ScalarProperty Name="withdrawal_monthly_counter" ColumnName="withdrawal_monthly_counter" />
+                <ScalarProperty Name="withdrawal_tax" ColumnName="withdrawal_tax" />
+                <ScalarProperty Name="nonresident_tax" ColumnName="nonresident_tax" />
                 <ScalarProperty Name="interestdate" ColumnName="interestdate" />
                 <ScalarProperty Name="accountNo" ColumnName="accountNo" />
                 <ScalarProperty Name="userId" ColumnName="userId" />
@@ -1473,6 +1515,7 @@
           <EntitySetMapping Name="InterestRates">
             <EntityTypeMapping TypeName="BankOfFijiModel.InterestRates">
               <MappingFragment StoreEntitySet="InterestRates">
+                <ScalarProperty Name="FIRCARates" ColumnName="FIRCARates" />
                 <ScalarProperty Name="interestRateId" ColumnName="interestRateId" />
                 <ScalarProperty Name="interestRateDetails" ColumnName="interestRateDetails" />
                 <ScalarProperty Name="rateValue" ColumnName="rateValue" />
@@ -1482,6 +1525,11 @@
           <EntitySetMapping Name="LoanApplications">
             <EntityTypeMapping TypeName="BankOfFijiModel.LoanApplications">
               <MappingFragment StoreEntitySet="LoanApplications">
+                <ScalarProperty Name="loanEnddate" ColumnName="loanEnddate" />
+                <ScalarProperty Name="loan_nextinterestdate" ColumnName="loan_nextinterestdate" />
+                <ScalarProperty Name="loan_interestrate" ColumnName="loan_interestrate" />
+                <ScalarProperty Name="total_interestpaid" ColumnName="total_interestpaid" />
+                <ScalarProperty Name="loan_amountpaid" ColumnName="loan_amountpaid" />
                 <ScalarProperty Name="loanApplicationNo" ColumnName="loanApplicationNo" />
                 <ScalarProperty Name="accountNo" ColumnName="accountNo" />
                 <ScalarProperty Name="assetTypeId" ColumnName="assetTypeId" />
@@ -1587,6 +1635,15 @@
               <MappingFragment StoreEntitySet="Automatic_Payment_State">
                 <ScalarProperty Name="State_descript" ColumnName="State_descript" />
                 <ScalarProperty Name="State_ID" ColumnName="State_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notification">
+            <EntityTypeMapping TypeName="BankOfFijiModel.Notification">
+              <MappingFragment StoreEntitySet="Notification">
+                <ScalarProperty Name="NotificationStatus" ColumnName="NotificationStatus" />
+                <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+                <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

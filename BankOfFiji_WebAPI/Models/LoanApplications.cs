@@ -23,6 +23,11 @@ namespace BankOfFiji_WebAPI.Models
         public string approver { get; set; }
         public Nullable<System.DateTime> approvedDate { get; set; }
         public int applicationStatusId { get; set; }
+        public Nullable<decimal> loan_amountpaid { get; set; }
+        public Nullable<decimal> total_interestpaid { get; set; }
+        public Nullable<decimal> loan_interestrate { get; set; }
+        public Nullable<System.DateTime> loan_nextinterestdate { get; set; }
+        public Nullable<System.DateTime> loanEnddate { get; set; }
     
         public virtual ApplicationStatus ApplicationStatus { get; set; }
         public virtual AssetType AssetType { get; set; }

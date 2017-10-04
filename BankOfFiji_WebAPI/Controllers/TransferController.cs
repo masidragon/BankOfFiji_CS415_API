@@ -113,14 +113,35 @@ namespace BankOfFiji_WebAPI.Controllers
         /// Makes a new transfer entry in the database
         /// </summary>
         /// <param Transfer="info"></param>
-        /// <returns>String to state the status of the transaction</returns>
+        /// <returns>An object containing all tranfer details and the status of the transaction</returns>
         [HttpPost]
         [Route("transfertoacc")]
         public IHttpActionResult EnableTransfer([FromBody]Transfer info)
         {
             try
             {
-                string message = TransferRepo.EnableTransfer(info);
+                Transfer message = TransferRepo.EnableTransfer(info);
+                return Ok(message);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        // POST api/transfertoacc
+        /// <summary>
+        /// Makes a new bill payment entry in the database
+        /// </summary>
+        /// <param Transfer="info"></param>
+        /// <returns>An object containing all tranfer details and the status of the transaction</returns>
+        [HttpPost]
+        [Route("billpaymentfromacc")]
+        public IHttpActionResult EnableBillPayment([FromBody]Transfer info)
+        {
+            try
+            {
+                Transfer message = TransferRepo.EnableBillPayment(info);
                 return Ok(message);
             }
             catch

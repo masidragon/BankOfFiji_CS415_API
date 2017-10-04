@@ -15,5 +15,6 @@ namespace BankOfFiji_WebAPI.Models
         public string StartDate { get; set; }
         public string EndDate { get; set; }
         public int Interval { get; set; }
+        public string TransferStatus { get; set; }
     }
 }

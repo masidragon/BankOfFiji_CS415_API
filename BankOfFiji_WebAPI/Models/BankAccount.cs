@@ -35,6 +35,10 @@ namespace BankOfFiji_WebAPI.Models
         public int taxId { get; set; }
         public int accountStatusId { get; set; }
         public Nullable<System.DateTime> interestdate { get; set; }
+        public Nullable<decimal> nonresident_tax { get; set; }
+        public Nullable<decimal> withdrawal_tax { get; set; }
+        public Nullable<int> withdrawal_monthly_counter { get; set; }
+        public Nullable<decimal> business_tax { get; set; }
     
         public virtual AccountStatus AccountStatus { get; set; }
         public virtual AccountType AccountType { get; set; }

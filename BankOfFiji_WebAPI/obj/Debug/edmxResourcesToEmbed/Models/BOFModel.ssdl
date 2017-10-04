@@ -80,6 +80,10 @@
     <Property Name="taxId" Type="int" Nullable="false" />
     <Property Name="accountStatusId" Type="int" Nullable="false" />
     <Property Name="interestdate" Type="datetime" />
+    <Property Name="nonresident_tax" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="withdrawal_tax" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="withdrawal_monthly_counter" Type="int" />
+    <Property Name="business_tax" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="CustomerProfile">
     <Key>
@@ -123,6 +127,7 @@
     <Property Name="interestRateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="interestRateDetails" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="rateValue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="FIRCARates" Type="decimal" Precision="18" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="LoanApplications">
     <Key>
@@ -133,9 +138,14 @@
     <Property Name="assetTypeId" Type="int" Nullable="false" />
     <Property Name="monthlyRent/MortageAmt" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="desiredLoanAmt" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="loan_amountpaid" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="total_interestpaid" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="loan_interestrate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="loan_nextinterestdate" Type="datetime" />
     <Property Name="loanTypeId" Type="int" Nullable="false" />
     <Property Name="approver" Type="varchar(max)" />
     <Property Name="approvedDate" Type="datetime" />
+    <Property Name="loanEnddate" Type="datetime" />
     <Property Name="applicationStatusId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="LoanRecords">
@@ -161,6 +171,14 @@
     <Property Name="LoanTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LoanTypeDesc" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="LoanInterestRate" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="NotificationID" />
+    </Key>
+    <Property Name="NotificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NotificationType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NotificationStatus" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -521,6 +539,7 @@
     <EntitySet Name="LoanRecords" EntityType="Self.LoanRecords" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoanStatus" EntityType="Self.LoanStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoanType" EntityType="Self.LoanType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Scheduler" EntityType="Self.Scheduler" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TaxRates" EntityType="Self.TaxRates" Schema="dbo" store:Type="Tables" />

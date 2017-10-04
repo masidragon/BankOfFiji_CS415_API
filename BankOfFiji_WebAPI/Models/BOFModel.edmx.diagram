@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="171a0e357bb743cc8d4f5a5afec62c52" Name="Diagram1">
+      <Diagram DiagramId="171a0e357bb743cc8d4f5a5afec62c52" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="BankOfFijiModel.AccountApplications" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BankOfFijiModel.AccountStatus" Width="1.5" PointX="3.75" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BankOfFijiModel.AccountType" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
@@ -50,6 +50,7 @@
         <AssociationConnector Association="BankOfFijiModel.FK_Transactions_TransactionType" ManuallyRouted="false" />
         <EntityTypeShape EntityType="BankOfFijiModel.Automatic_Payment_State" Width="1.5" PointX="12.375" PointY="0.875" />
         <AssociationConnector Association="BankOfFijiModel.FK_AutoPayments_Automatic_Payment_State" />
+        <EntityTypeShape EntityType="BankOfFijiModel.Notification" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

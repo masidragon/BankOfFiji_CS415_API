@@ -96,6 +96,10 @@
     <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_DestinationAccount" FromRole="BankAccount" ToRole="Transactions" />
     <NavigationProperty Name="Transactions1" Relationship="Self.FK_Transactions_SourceAccount" FromRole="BankAccount" ToRole="Transactions" />
     <Property Name="interestdate" Type="DateTime" Precision="3" />
+    <Property Name="nonresident_tax" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="withdrawal_tax" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="withdrawal_monthly_counter" Type="Int32" />
+    <Property Name="business_tax" Type="Decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="CustomerProfile">
     <Key>
@@ -142,6 +146,7 @@
     <Property Name="interestRateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="interestRateDetails" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="rateValue" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="FIRCARates" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="LoanApplications">
     <Key>
@@ -161,6 +166,11 @@
     <NavigationProperty Name="BankAccount" Relationship="Self.FK_LoanApplications_BankAccount" FromRole="LoanApplications" ToRole="BankAccount" />
     <NavigationProperty Name="LoanType" Relationship="Self.FK_LoanApplications_LoanType" FromRole="LoanApplications" ToRole="LoanType" />
     <NavigationProperty Name="LoanRecords" Relationship="Self.FK_LoanRecords_LoanApplications" FromRole="LoanApplications" ToRole="LoanRecords" />
+    <Property Name="loan_amountpaid" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="total_interestpaid" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="loan_interestrate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="loan_nextinterestdate" Type="DateTime" Precision="3" />
+    <Property Name="loanEnddate" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="LoanRecords">
     <Key>
@@ -681,6 +691,7 @@
       <End Role="Automatic_Payment_State" EntitySet="Automatic_Payment_State" />
       <End Role="AutoPayments" EntitySet="AutoPayments" />
     </AssociationSet>
+    <EntitySet Name="Notification" EntityType="BankOfFijiModel.Notification" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -713,4 +724,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="NotificationID" />
+    </Key>
+    <Property Name="NotificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NotificationType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NotificationStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

@@ -68,6 +68,10 @@
     <EntitySetMapping Name="BankAccount">
       <EntityTypeMapping TypeName="BankOfFijiModel.BankAccount">
         <MappingFragment StoreEntitySet="BankAccount">
+          <ScalarProperty Name="business_tax" ColumnName="business_tax" />
+          <ScalarProperty Name="withdrawal_monthly_counter" ColumnName="withdrawal_monthly_counter" />
+          <ScalarProperty Name="withdrawal_tax" ColumnName="withdrawal_tax" />
+          <ScalarProperty Name="nonresident_tax" ColumnName="nonresident_tax" />
           <ScalarProperty Name="interestdate" ColumnName="interestdate" />
           <ScalarProperty Name="accountNo" ColumnName="accountNo" />
           <ScalarProperty Name="userId" ColumnName="userId" />
@@ -122,6 +126,7 @@
     <EntitySetMapping Name="InterestRates">
       <EntityTypeMapping TypeName="BankOfFijiModel.InterestRates">
         <MappingFragment StoreEntitySet="InterestRates">
+          <ScalarProperty Name="FIRCARates" ColumnName="FIRCARates" />
           <ScalarProperty Name="interestRateId" ColumnName="interestRateId" />
           <ScalarProperty Name="interestRateDetails" ColumnName="interestRateDetails" />
           <ScalarProperty Name="rateValue" ColumnName="rateValue" />
@@ -131,6 +136,11 @@
     <EntitySetMapping Name="LoanApplications">
       <EntityTypeMapping TypeName="BankOfFijiModel.LoanApplications">
         <MappingFragment StoreEntitySet="LoanApplications">
+          <ScalarProperty Name="loanEnddate" ColumnName="loanEnddate" />
+          <ScalarProperty Name="loan_nextinterestdate" ColumnName="loan_nextinterestdate" />
+          <ScalarProperty Name="loan_interestrate" ColumnName="loan_interestrate" />
+          <ScalarProperty Name="total_interestpaid" ColumnName="total_interestpaid" />
+          <ScalarProperty Name="loan_amountpaid" ColumnName="loan_amountpaid" />
           <ScalarProperty Name="loanApplicationNo" ColumnName="loanApplicationNo" />
           <ScalarProperty Name="accountNo" ColumnName="accountNo" />
           <ScalarProperty Name="assetTypeId" ColumnName="assetTypeId" />
@@ -236,6 +246,15 @@
         <MappingFragment StoreEntitySet="Automatic_Payment_State">
           <ScalarProperty Name="State_descript" ColumnName="State_descript" />
           <ScalarProperty Name="State_ID" ColumnName="State_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notification">
+      <EntityTypeMapping TypeName="BankOfFijiModel.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="NotificationStatus" ColumnName="NotificationStatus" />
+          <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+          <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -499,6 +499,13 @@
             <param name="CustID"></param>
             <returns>The user details for the dashboard view.</returns>
         </member>
+        <member name="M:BankOfFiji_WebAPI.Controllers.DashboardController.getnotifications">
+            <summary>
+            Verify the user exists in the system and return their details.
+            </summary>
+            <param name="CustID"></param>
+            <returns>The user details for the dashboard view.</returns>
+        </member>
         <member name="M:BankOfFiji_WebAPI.Controllers.LoanController.searchuser(BankOfFiji_WebAPI.Models.Loan)">
             <summary>
             Submission of loan application into the database
@@ -573,7 +580,14 @@
             Makes a new transfer entry in the database
             </summary>
             <param Transfer="info"></param>
-            <returns>String to state the status of the transaction</returns>
+            <returns>An object containing all tranfer details and the status of the transaction</returns>
+        </member>
+        <member name="M:BankOfFiji_WebAPI.Controllers.TransferController.EnableBillPayment(BankOfFiji_WebAPI.Models.Transfer)">
+            <summary>
+            Makes a new bill payment entry in the database
+            </summary>
+            <param Transfer="info"></param>
+            <returns>An object containing all tranfer details and the status of the transaction</returns>
         </member>
         <member name="M:BankOfFiji_WebAPI.Controllers.TransferController.GetIntervals">
             <summary>

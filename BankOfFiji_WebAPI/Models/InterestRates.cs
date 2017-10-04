@@ -17,5 +17,6 @@ namespace BankOfFiji_WebAPI.Models
         public int interestRateId { get; set; }
         public string interestRateDetails { get; set; }
         public decimal rateValue { get; set; }
+        public decimal FIRCARates { get; set; }
     }
 }

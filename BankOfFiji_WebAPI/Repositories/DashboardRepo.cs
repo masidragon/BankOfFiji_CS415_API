@@ -104,5 +104,12 @@ namespace BankOfFiji_WebAPI.Repositories
                 return Data;
             }
         }
+
+        public static List<Notification> GetAllNotifications()
+        {
+            BankOfFijiEntities db = new BankOfFijiEntities();
+
+            return (from all in db.Notification select all).ToList();
+        } 
     }
 }

@@ -56,5 +56,24 @@ namespace BankOfFiji_WebAPI.Controllers
             }
 
         }
+
+        [HttpGet]
+        [Route("fircapdf")]
+        public IHttpActionResult FIRCAPDF(HistoryHandler HistoryParam)
+        {
+            DataTable PDF = new DataTable();
+
+            try
+            {
+                PDF = TransactionRepo.FIRCAPDF();
+
+                return Ok(PDF);
+            }
+            catch
+            {
+                return NotFound();
+            }
+
+        }
     }
 }

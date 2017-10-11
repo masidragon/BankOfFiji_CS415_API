@@ -565,3 +565,10 @@ C:\Users\Intervention\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\bin\Po
 C:\Users\Intervention\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\bin\BankOfFiji_WebAPI.pssym
 C:\Users\Intervention\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.dll.postsharp
 C:\Users\Intervention\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\obj\Debug\PostSharpHost.config
+C:\Users\wj039242\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\bin\itextsharp.dll
+C:\Users\wj039242\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\bin\PostSharp.dll
+C:\Users\wj039242\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\bin\itextsharp.xml
+C:\Users\wj039242\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\bin\PostSharp.xml
+C:\Users\wj039242\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\bin\BankOfFiji_WebAPI.pssym
+C:\Users\wj039242\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\obj\Debug\BankOfFiji_WebAPI.dll.postsharp
+C:\Users\wj039242\Source\Repos\BankOfFiji_CS415_API\BankOfFiji_WebAPI\obj\Debug\PostSharpHost.config

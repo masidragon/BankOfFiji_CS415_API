@@ -434,20 +434,21 @@ namespace BankOfFiji_WebAPI.Repositories
                     db.SaveChanges();
                 }
 
+                var MoneyExists = from all in db.BankAccount
+                                  where all.creditBal < info.Trans_Amount && all.accountNo == info.Acc_ID
+                                  select all;
+
+
+                if (MoneyExists.Any())
+                {
+                    info.TransferStatus = "Oh no! You have insufficient funds to make your bill payment!";
+
+                    return info;
+                }
+
                 // If Automatic Transfers was passed to API
                 if (info.StartDate != "0001-01-01T00:00:00" || info.EndDate != "0001-01-01T00:00:00")
                 {
-                    var MoneyExists = from all in db.BankAccount
-                                      where all.creditBal < info.Trans_Amount && all.accountNo == info.Acc_ID
-                                      select all;
-
-
-                    if (MoneyExists.Any())
-                    {
-                        info.TransferStatus = "Oh no! You have insufficient funds to make your bill payment!";
-
-                        return info;
-                    }
 
                     AutoPayments SetUpScheduler = new AutoPayments();
 

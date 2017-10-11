@@ -129,6 +129,16 @@
     <Property Name="rateValue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="FIRCARates" Type="decimal" Precision="18" Scale="2" Nullable="false" />
   </EntityType>
+  <EntityType Name="InternationalTransfer">
+    <Key>
+      <PropertyRef Name="ITransfer_ID" />
+    </Key>
+    <Property Name="ITransfer_ID" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="ITState_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="sourceAccount" Type="int" Nullable="false" />
+    <Property Name="destinationAccount" Type="int" Nullable="false" />
+    <Property Name="amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
   <EntityType Name="LoanApplications">
     <Key>
       <PropertyRef Name="loanApplicationNo" />
@@ -221,6 +231,13 @@
     <Property Name="TransactionTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TransactionTypeDesc" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="TransactionFee" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transfer_State">
+    <Key>
+      <PropertyRef Name="ITState_ID" />
+    </Key>
+    <Property Name="ITState_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ITState_desc" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -403,6 +420,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_InternationalTransfer_BankAccount">
+    <End Role="BankAccount" Type="Self.BankAccount" Multiplicity="1" />
+    <End Role="InternationalTransfer" Type="Self.InternationalTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BankAccount">
+        <PropertyRef Name="accountNo" />
+      </Principal>
+      <Dependent Role="InternationalTransfer">
+        <PropertyRef Name="sourceAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InternationalTransfer_InternationalTransfer">
+    <End Role="Transfer_State" Type="Self.Transfer_State" Multiplicity="1" />
+    <End Role="InternationalTransfer" Type="Self.InternationalTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transfer_State">
+        <PropertyRef Name="ITState_ID" />
+      </Principal>
+      <Dependent Role="InternationalTransfer">
+        <PropertyRef Name="ITState_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_LoanApplications_ApplicationStatus">
     <End Role="ApplicationStatus" Type="Self.ApplicationStatus" Multiplicity="1" />
     <End Role="LoanApplications" Type="Self.LoanApplications" Multiplicity="*" />
@@ -523,6 +564,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="AutoInterest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AutoLoanInterestPay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AutoPay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="WithdrawalCounter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="BankOfFijiModelStoreContainer">
     <EntitySet Name="AccountApplications" EntityType="Self.AccountApplications" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AccountStatus" EntityType="Self.AccountStatus" Schema="dbo" store:Type="Tables" />
@@ -535,6 +580,7 @@
     <EntitySet Name="CustomerProfile" EntityType="Self.CustomerProfile" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CustomerType" EntityType="Self.CustomerType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InterestRates" EntityType="Self.InterestRates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InternationalTransfer" EntityType="Self.InternationalTransfer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoanApplications" EntityType="Self.LoanApplications" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoanRecords" EntityType="Self.LoanRecords" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoanStatus" EntityType="Self.LoanStatus" Schema="dbo" store:Type="Tables" />
@@ -545,6 +591,7 @@
     <EntitySet Name="TaxRates" EntityType="Self.TaxRates" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TransactionType" EntityType="Self.TransactionType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transfer_State" EntityType="Self.Transfer_State" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Account_AccountStatus" Association="Self.FK_Account_AccountStatus">
       <End Role="AccountStatus" EntitySet="AccountStatus" />
@@ -601,6 +648,14 @@
     <AssociationSet Name="FK_Customer_Users" Association="Self.FK_Customer_Users">
       <End Role="Users" EntitySet="Users" />
       <End Role="CustomerProfile" EntitySet="CustomerProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InternationalTransfer_BankAccount" Association="Self.FK_InternationalTransfer_BankAccount">
+      <End Role="BankAccount" EntitySet="BankAccount" />
+      <End Role="InternationalTransfer" EntitySet="InternationalTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InternationalTransfer_InternationalTransfer" Association="Self.FK_InternationalTransfer_InternationalTransfer">
+      <End Role="Transfer_State" EntitySet="Transfer_State" />
+      <End Role="InternationalTransfer" EntitySet="InternationalTransfer" />
     </AssociationSet>
     <AssociationSet Name="FK_LoanApplications_ApplicationStatus" Association="Self.FK_LoanApplications_ApplicationStatus">
       <End Role="ApplicationStatus" EntitySet="ApplicationStatus" />

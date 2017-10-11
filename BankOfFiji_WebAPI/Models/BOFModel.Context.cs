@@ -49,6 +49,8 @@ namespace BankOfFiji_WebAPI.Models
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Automatic_Payment_State> Automatic_Payment_State { get; set; }
         public virtual DbSet<Notification> Notification { get; set; }
+        public virtual DbSet<InternationalTransfer> InternationalTransfer { get; set; }
+        public virtual DbSet<Transfer_State> Transfer_State { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -151,6 +153,26 @@ namespace BankOfFiji_WebAPI.Models
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual int AutoInterest()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AutoInterest");
+        }
+    
+        public virtual int AutoLoanInterestPay()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AutoLoanInterestPay");
+        }
+    
+        public virtual int AutoPay()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AutoPay");
+        }
+    
+        public virtual int WithdrawalCounter()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("WithdrawalCounter");
         }
     }
 }

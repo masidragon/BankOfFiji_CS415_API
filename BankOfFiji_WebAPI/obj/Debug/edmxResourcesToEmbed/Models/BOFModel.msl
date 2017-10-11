@@ -258,5 +258,28 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="InternationalTransfer">
+      <EntityTypeMapping TypeName="BankOfFijiModel.InternationalTransfer">
+        <MappingFragment StoreEntitySet="InternationalTransfer">
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="destinationAccount" ColumnName="destinationAccount" />
+          <ScalarProperty Name="sourceAccount" ColumnName="sourceAccount" />
+          <ScalarProperty Name="ITState_ID" ColumnName="ITState_ID" />
+          <ScalarProperty Name="ITransfer_ID" ColumnName="ITransfer_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transfer_State">
+      <EntityTypeMapping TypeName="BankOfFijiModel.Transfer_State">
+        <MappingFragment StoreEntitySet="Transfer_State">
+          <ScalarProperty Name="ITState_desc" ColumnName="ITState_desc" />
+          <ScalarProperty Name="ITState_ID" ColumnName="ITState_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AutoInterest" FunctionName="BankOfFijiModel.Store.AutoInterest" />
+    <FunctionImportMapping FunctionImportName="AutoLoanInterestPay" FunctionName="BankOfFijiModel.Store.AutoLoanInterestPay" />
+    <FunctionImportMapping FunctionImportName="AutoPay" FunctionName="BankOfFijiModel.Store.AutoPay" />
+    <FunctionImportMapping FunctionImportName="WithdrawalCounter" FunctionName="BankOfFijiModel.Store.WithdrawalCounter" />
   </EntityContainerMapping>
 </Mapping>

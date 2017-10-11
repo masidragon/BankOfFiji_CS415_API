@@ -208,7 +208,6 @@ namespace BankOfFiji_WebAPI.Repositories
 
         }
 
-
         [NotificationsAspect]
         public static Transfer EnableTransfer(Transfer info)
         {
@@ -624,6 +623,135 @@ namespace BankOfFiji_WebAPI.Repositories
         public static Transfer LowBalance(Transfer Acc)
         {
             return Acc;
+        }
+
+        public static Transfer IntTransfer(Transfer info)
+        {
+            try
+            {
+                BankOfFijiEntities db = new BankOfFijiEntities();
+
+                // Check if decrement is from Savings
+                var AccType = (from all in db.BankAccount
+                               where info.Acc_ID == all.accountNo
+                               select all.accountTypeId).FirstOrDefault();
+
+                if (AccType == 2)
+                {
+                    var WithdrawlIncrementCounter = db.BankAccount.Find(info.Acc_ID);
+                    WithdrawlIncrementCounter.withdrawal_monthly_counter = WithdrawlIncrementCounter.withdrawal_monthly_counter + 1;
+                    db.SaveChanges();
+                }
+
+                InternationalTransfer NewEntry = new InternationalTransfer();
+
+                // Check withdrawl counter
+                var WithdrawlCounter = (from all in db.BankAccount
+                                        where info.Acc_ID == all.accountNo
+                                        select all.withdrawal_monthly_counter).FirstOrDefault();
+
+                if (WithdrawlCounter > 1 && AccType == 2)
+                {
+                    // Pay for withdrawl from account
+                    var WithdrawlAutoDecrement = db.BankAccount.Find(info.Acc_ID);
+                    WithdrawlAutoDecrement.creditBal = WithdrawlAutoDecrement.creditBal + Decimal.Parse("5.00");
+
+                    // Bank income
+                    var WithdrawlAutoIncrement = db.BankAccount.Find(10);
+                    WithdrawlAutoIncrement.creditBal = WithdrawlAutoIncrement.creditBal + Decimal.Parse("5.00");
+
+                    // Make transaction entry
+                    Transactions WithdrawlFee = new Transactions();
+
+                    WithdrawlFee.transcId = Guid.NewGuid();
+                    WithdrawlFee.transactionTypeId = 10;
+                    WithdrawlFee.transcAmount = Decimal.Parse("5.00");
+                    WithdrawlFee.transcDate = DateTime.Now;
+                    WithdrawlFee.sourceAccount = info.Acc_ID;
+                    WithdrawlFee.destinationAccount = 10;
+
+                    db.Transactions.Add(WithdrawlFee);
+                }
+
+
+                // Decrement from account
+                var Decrement = db.BankAccount.Find(info.Acc_ID);
+                Decrement.creditBal = Decrement.creditBal - info.Trans_Amount;
+
+                var CheckLastID = (from all in db.InternationalTransfer
+                                   orderby all.ITransfer_ID ascending
+                                  select all.ITransfer_ID).FirstOrDefault();
+
+                string NewID = "1001";
+
+                if (CheckLastID == null)
+                {
+                    int ID = Convert.ToInt32(CheckLastID);
+                    ID++;
+                    NewID = ID.ToString();
+                }
+
+                // Make transaction entry
+                NewEntry.ITransfer_ID = NewID;
+                NewEntry.amount = info.Trans_Amount;
+                NewEntry.sourceAccount = info.Acc_ID;
+                NewEntry.destinationAccount = info.TransferAcc_ID;
+                NewEntry.ITState_ID = "1";
+
+                db.InternationalTransfer.Add(NewEntry);
+                db.SaveChanges();
+
+                var CheckAccountBalance = (from all in db.BankAccount
+                                           where all.accountNo == info.Acc_ID
+                                           select all.creditBal).FirstOrDefault();
+
+                if (Convert.ToDouble(CheckAccountBalance) < 10.00)
+                {
+                    LowBalance(info);
+                }
+
+                info.TransferStatus = "Yay! You have sucessfully transfered $" + info.Trans_Amount + " to Acc Number: " + info.TransferAcc_ID + " from Acc Number: " + info.Acc_ID;
+
+                return info;
+
+            }
+            catch (Exception ex)
+            {
+                info.TransferStatus = "Oh no! Error:" + ex;
+
+                return info;
+            }
+        }
+
+        public static List<IntTransferStatesViewModel> IntStates(int info)
+        {
+            try
+            {
+                BankOfFijiEntities db = new BankOfFijiEntities();
+
+                var FindStates = from all in db.InternationalTransfer
+                                 where all.BankAccount.userId == info
+                                 select all;
+
+                List<IntTransferStatesViewModel> List = new List<IntTransferStatesViewModel>();
+
+
+                foreach (var item in FindStates)
+                {
+                    IntTransferStatesViewModel Value = new IntTransferStatesViewModel();
+                    Value.Amount = item.amount;
+                    Value.DestinationAccount = item.destinationAccount;
+                    Value.SourceAccount = item.sourceAccount;
+                    Value.State = item.Transfer_State.ITState_desc;
+                    List.Add(Value);
+                }
+
+                return List;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

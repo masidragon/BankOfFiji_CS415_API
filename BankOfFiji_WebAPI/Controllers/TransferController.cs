@@ -211,5 +211,37 @@ namespace BankOfFiji_WebAPI.Controllers
                 return NotFound();
             }
         }
+
+        // POST api/values
+        [HttpPost]
+        [Route("transfertointacc")]
+        public IHttpActionResult IntTransfer(Transfer CustID)
+        {
+            try
+            {
+                var message = TransferRepo.IntTransfer(CustID);
+                return Ok(message);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        // POST api/values
+        [HttpPost]
+        [Route("states")]
+        public IHttpActionResult IntStates(int CustID)
+        {
+            try
+            {
+                var message = TransferRepo.IntStates(CustID);
+                return Ok(message);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

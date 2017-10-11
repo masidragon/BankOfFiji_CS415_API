@@ -22,6 +22,7 @@ namespace BankOfFiji_WebAPI.Models
             this.LoanApplications = new HashSet<LoanApplications>();
             this.Transactions = new HashSet<Transactions>();
             this.Transactions1 = new HashSet<Transactions>();
+            this.InternationalTransfer = new HashSet<InternationalTransfer>();
         }
     
         public int accountNo { get; set; }
@@ -54,5 +55,7 @@ namespace BankOfFiji_WebAPI.Models
         public virtual ICollection<Transactions> Transactions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transactions> Transactions1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InternationalTransfer> InternationalTransfer { get; set; }
     }
 }

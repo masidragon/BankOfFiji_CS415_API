@@ -12,10 +12,15 @@ namespace BankOfFiji_WebAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Notification
+    public partial class InternationalTransfer
     {
-        public int NotificationID { get; set; }
-        public string NotificationType { get; set; }
-        public string NotificationStatus { get; set; }
+        public string ITransfer_ID { get; set; }
+        public string ITState_ID { get; set; }
+        public int sourceAccount { get; set; }
+        public int destinationAccount { get; set; }
+        public decimal amount { get; set; }
+    
+        public virtual BankAccount BankAccount { get; set; }
+        public virtual Transfer_State Transfer_State { get; set; }
     }
 }

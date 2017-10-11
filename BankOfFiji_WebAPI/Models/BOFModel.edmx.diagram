@@ -51,6 +51,10 @@
         <EntityTypeShape EntityType="BankOfFijiModel.Automatic_Payment_State" Width="1.5" PointX="12.375" PointY="0.875" />
         <AssociationConnector Association="BankOfFijiModel.FK_AutoPayments_Automatic_Payment_State" />
         <EntityTypeShape EntityType="BankOfFijiModel.Notification" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BankOfFijiModel.InternationalTransfer" Width="1.5" PointX="11.25" PointY="13.75" />
+        <EntityTypeShape EntityType="BankOfFijiModel.Transfer_State" Width="1.5" PointX="9" PointY="18.125" />
+        <AssociationConnector Association="BankOfFijiModel.FK_InternationalTransfer_BankAccount" />
+        <AssociationConnector Association="BankOfFijiModel.FK_InternationalTransfer_InternationalTransfer" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

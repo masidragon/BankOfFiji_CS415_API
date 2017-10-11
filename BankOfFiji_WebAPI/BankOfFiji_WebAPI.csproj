@@ -290,7 +290,11 @@
     <Compile Include="Models\InterestRates.cs">
       <DependentUpon>BOFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\InternationalTransfer.cs">
+      <DependentUpon>BOFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Intervals.cs" />
+    <Compile Include="Models\IntTransferStatesViewModel.cs" />
     <Compile Include="Models\Loan.cs" />
     <Compile Include="Models\LoanApplications.cs">
       <DependentUpon>BOFModel.tt</DependentUpon>
@@ -336,6 +340,9 @@
       <DependentUpon>BOFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Transfer.cs" />
+    <Compile Include="Models\Transfer_State.cs">
+      <DependentUpon>BOFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserDetails.cs" />
     <Compile Include="Models\Users.cs">
       <DependentUpon>BOFModel.tt</DependentUpon>

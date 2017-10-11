@@ -100,6 +100,7 @@
     <Property Name="withdrawal_tax" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="withdrawal_monthly_counter" Type="Int32" />
     <Property Name="business_tax" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="InternationalTransfer" Relationship="BankOfFijiModel.FK_InternationalTransfer_BankAccount" FromRole="BankAccount" ToRole="InternationalTransfer" />
   </EntityType>
   <EntityType Name="CustomerProfile">
     <Key>
@@ -692,6 +693,20 @@
       <End Role="AutoPayments" EntitySet="AutoPayments" />
     </AssociationSet>
     <EntitySet Name="Notification" EntityType="BankOfFijiModel.Notification" />
+    <EntitySet Name="InternationalTransfer" EntityType="BankOfFijiModel.InternationalTransfer" />
+    <EntitySet Name="Transfer_State" EntityType="BankOfFijiModel.Transfer_State" />
+    <AssociationSet Name="FK_InternationalTransfer_BankAccount" Association="BankOfFijiModel.FK_InternationalTransfer_BankAccount">
+      <End Role="BankAccount" EntitySet="BankAccount" />
+      <End Role="InternationalTransfer" EntitySet="InternationalTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InternationalTransfer_InternationalTransfer" Association="BankOfFijiModel.FK_InternationalTransfer_InternationalTransfer">
+      <End Role="Transfer_State" EntitySet="Transfer_State" />
+      <End Role="InternationalTransfer" EntitySet="InternationalTransfer" />
+    </AssociationSet>
+    <FunctionImport Name="AutoInterest" />
+    <FunctionImport Name="AutoLoanInterestPay" />
+    <FunctionImport Name="AutoPay" />
+    <FunctionImport Name="WithdrawalCounter" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -732,4 +747,48 @@
     <Property Name="NotificationType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="NotificationStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityType Name="InternationalTransfer">
+    <Key>
+      <PropertyRef Name="ITransfer_ID" />
+    </Key>
+    <Property Name="ITransfer_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ITState_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sourceAccount" Type="Int32" Nullable="false" />
+    <Property Name="destinationAccount" Type="Int32" Nullable="false" />
+    <Property Name="amount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <NavigationProperty Name="BankAccount" Relationship="BankOfFijiModel.FK_InternationalTransfer_BankAccount" FromRole="InternationalTransfer" ToRole="BankAccount" />
+    <NavigationProperty Name="Transfer_State" Relationship="BankOfFijiModel.FK_InternationalTransfer_InternationalTransfer" FromRole="InternationalTransfer" ToRole="Transfer_State" />
+  </EntityType>
+  <EntityType Name="Transfer_State">
+    <Key>
+      <PropertyRef Name="ITState_ID" />
+    </Key>
+    <Property Name="ITState_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ITState_desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="InternationalTransfer" Relationship="BankOfFijiModel.FK_InternationalTransfer_InternationalTransfer" FromRole="Transfer_State" ToRole="InternationalTransfer" />
+  </EntityType>
+  <Association Name="FK_InternationalTransfer_BankAccount">
+    <End Type="BankOfFijiModel.BankAccount" Role="BankAccount" Multiplicity="1" />
+    <End Type="BankOfFijiModel.InternationalTransfer" Role="InternationalTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BankAccount">
+        <PropertyRef Name="accountNo" />
+      </Principal>
+      <Dependent Role="InternationalTransfer">
+        <PropertyRef Name="sourceAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InternationalTransfer_InternationalTransfer">
+    <End Type="BankOfFijiModel.Transfer_State" Role="Transfer_State" Multiplicity="1" />
+    <End Type="BankOfFijiModel.InternationalTransfer" Role="InternationalTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transfer_State">
+        <PropertyRef Name="ITState_ID" />
+      </Principal>
+      <Dependent Role="InternationalTransfer">
+        <PropertyRef Name="ITState_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
